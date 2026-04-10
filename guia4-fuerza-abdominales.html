@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Guía de Aprendizaje – FUERZA ABDOMINALES</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>:root{--accent:#E63946;--accent-light:#FF5A65;--dark:#0A0A0A;--mid:#141414;--card:#1A1A1A;--nav-h:64px}
+  *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Mulish',sans-serif;background:var(--dark);color:#F0F0F0;min-height:100vh}
+  header{background:rgba(10,10,10,0.97);height:var(--nav-h);display:flex;align-items:center;padding:0 3rem;gap:2rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(230,57,70,0.15);backdrop-filter:blur(10px);width:100%;left:0;right:0}
+  .logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:white;text-decoration:none;display:flex;align-items:center;gap:0.5rem;white-space:nowrap}.logo span{color:var(--accent)}
+  nav{display:flex;align-items:center;gap:0.2rem;flex-wrap:wrap}nav a{font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;padding:0.4rem 0.8rem;border-radius:3px;transition:all 0.2s}nav a:hover{color:var(--accent);background:rgba(230,57,70,0.08)}
+  .subnav{position:relative}.subnav>a::after{content:' ▾';font-size:0.65rem}.subnav-menu{display:none;position:absolute;top:110%;left:0;background:var(--mid);border:1px solid rgba(230,57,70,0.15);border-radius:6px;overflow:hidden;min-width:170px;box-shadow:0 12px 30px rgba(0,0,0,0.7)}.subnav:hover .subnav-menu{display:block}.subnav-menu a{display:block;border-radius:0}
+  #inicio{min-height:94vh;background:var(--dark);position:relative;overflow:hidden;display:flex;align-items:flex-end}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 85% 30%,rgba(230,57,70,0.08) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 15% 70%,rgba(230,57,70,0.05) 0%,transparent 50%)}
+  .hero-content{position:relative;z-index:2;padding:4rem 5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:flex-end;width:100%}
+  .hero-tag{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);background:rgba(230,57,70,0.1);border:1px solid rgba(230,57,70,0.25);padding:0.35rem 0.9rem;display:inline-block;margin-bottom:2rem;border-radius:2px}
+  h1.hero-title{font-family:'Anton',sans-serif;font-size:clamp(3.5rem,9vw,7.5rem);line-height:0.88;letter-spacing:0.04em;color:white;text-transform:uppercase}h1.hero-title .accent{color:var(--accent);display:block}
+  .hero-sub{font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.75rem}
+  .hero-desc{font-size:0.97rem;line-height:1.85;font-weight:300;color:rgba(255,255,255,0.55);max-width:460px;margin-top:2rem;margin-bottom:2.5rem}.hero-desc strong{color:rgba(255,255,255,0.9);font-weight:700}
+  .btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;border-radius:3px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;display:inline-block}
+  .btn-accent{background:var(--accent);color:#0A0A0A}.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(230,57,70,0.35)}
+  .btn-ghost{background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.18);margin-left:1rem}.btn-ghost:hover{color:white;border-color:white}
+  .heartbeat{position:absolute;top:20%;right:12%;font-size:8rem;opacity:0.04;animation:beat 1.2s ease-in-out infinite}@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  .rep-stack{display:flex;flex-direction:column;gap:0.6rem;width:100%}.rep-row{display:flex;align-items:center;gap:1rem;opacity:0;animation:fadeRep 0.5s forwards}
+  .rep-row:nth-child(1){animation-delay:0.2s}.rep-row:nth-child(2){animation-delay:0.4s}.rep-row:nth-child(3){animation-delay:0.6s}.rep-row:nth-child(4){animation-delay:0.8s}.rep-row:nth-child(5){animation-delay:1s}
+  @keyframes fadeRep{from{opacity:0;transform:translateX(15px)}to{opacity:1;transform:translateX(0)}}
+  .rep-name{font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.45);width:120px;flex-shrink:0}
+  .rep-bar{flex:1;background:rgba(255,255,255,0.04);border-radius:2px;height:28px;overflow:hidden}
+  .rep-fill{height:100%;border-radius:2px;display:flex;align-items:center;padding:0 0.75rem;font-size:0.68rem;font-weight:800;color:rgba(0,0,0,0.7);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
+  .r1{width:55%;background:rgba(230,57,70,0.4)}.r2{width:70%;background:rgba(230,57,70,0.55)}.r3{width:85%;background:rgba(230,57,70,0.7)}.r4{width:95%;background:var(--accent)}.r5{width:65%;background:rgba(230,57,70,0.6)}
+  .inner{max-width:1100px;margin:0 auto;padding:0 4rem}
+  section.dark-sect{background:var(--dark);padding:5rem 0}section.mid-sect{background:var(--mid);padding:5rem 0}section.card-sect{background:var(--card);padding:5rem 0}
+  .section-label{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem}.section-label::after{content:'';flex:1;height:1px;background:rgba(230,57,70,0.2);max-width:80px}
+  h2{font-family:'Anton',sans-serif;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:0.05em;text-transform:uppercase;color:white;margin-bottom:1.5rem;line-height:1}
+  h3{font-weight:800;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;margin-top:2.5rem}
+  p{font-size:0.97rem;line-height:1.8;color:rgba(255,255,255,0.58);margin-bottom:1rem}
+  iframe{border-radius:8px;margin:2rem 0;max-width:100%;border:1px solid rgba(230,57,70,0.12)}
+  .activity-box{background:var(--card);border:1px solid rgba(230,57,70,0.2);border-left:4px solid var(--accent);border-radius:4px;padding:2rem 2.5rem;margin:2.5rem 0}
+  .act-label{font-size:0.65rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem}
+  .activity-box h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.06)}.activity-box p{margin-bottom:0.75rem}
+  
+  .field-group{margin-bottom:1rem}
+  .field-label{display:block;font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.35rem}
+  .field-input{width:100%;background:rgba(255,255,255,0.04);border:none;border-bottom:2px solid rgba(230,57,70,0.25);border-radius:3px 3px 0 0;padding:0.55rem 0.75rem;font-family:'Mulish',sans-serif;font-size:0.9rem;color:#F0F0F0;transition:border-color 0.2s,background 0.2s;resize:none}
+  .field-input:focus{outline:none;border-bottom-color:var(--accent);background:rgba(230,57,70,0.06)}
+  .field-input::placeholder{color:rgba(255,255,255,0.15)}
+  textarea.field-input{min-height:80px;line-height:1.6}
+  .alumno-bar{background:rgba(230,57,70,0.06);border:1px solid rgba(230,57,70,0.25);border-radius:6px;padding:1.25rem 2rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .alumno-bar label{font-size:0.72rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);flex-shrink:0}
+  .alumno-bar input{flex:1;min-width:200px;background:transparent;border:none;border-bottom:2px solid rgba(230,57,70,0.25);padding:0.4rem 0.5rem;font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:white}
+  .alumno-bar input:focus{outline:none;border-bottom-color:var(--accent)}
+  .alumno-bar input::placeholder{color:rgba(255,255,255,0.15);font-family:'Mulish',sans-serif;font-size:0.85rem;font-weight:400;letter-spacing:0}
+  .pdf-btn-wrap{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;display:flex;gap:1rem;align-items:center}
+  .pdf-btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;padding:1rem 2.2rem;border-radius:50px;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;gap:0.6rem;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+  .pdf-btn-save{background:var(--accent);color:#0A0A0A}.pdf-btn-save:hover{background:var(--accent-light);transform:translateY(-2px)}
+  .pdf-btn-clear{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12)}.pdf-btn-clear:hover{background:rgba(255,255,255,0.14);color:white}
+  .toast{position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#0A0A0A;font-weight:800;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:50px;z-index:300;opacity:0;transition:opacity 0.3s;pointer-events:none}
+  .toast.show{opacity:1}
+  .progress-bar-wrap{position:fixed;top:var(--nav-h);left:0;right:0;height:3px;background:rgba(255,255,255,0.06);z-index:99}
+  .progress-bar-fill{height:100%;background:var(--accent);width:0%;transition:width 0.4s}
+  .info-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.info-table th{font-size:0.75rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-align:left;padding:0.75rem 1rem;border-bottom:2px solid rgba(230,57,70,0.3)}.info-table td{padding:0.85rem 1rem;font-size:0.9rem;color:rgba(255,255,255,0.65);border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:top}.info-table tr:hover td{background:rgba(230,57,70,0.04);color:rgba(255,255,255,0.85)}
+  .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;margin:2rem 0;background:rgba(255,255,255,0.04)}.tech-tile{background:var(--dark);padding:1.75rem;transition:background 0.2s}.tech-tile:hover{background:rgba(230,57,70,0.06)}.tech-tile .t-icon{font-size:2rem;margin-bottom:0.75rem}.tech-tile h4{font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.tech-tile p{font-size:0.82rem;margin:0}
+  .grades-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;margin:2rem 0}.grade-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:1.5rem;transition:all 0.2s}.grade-card:hover{border-color:rgba(230,57,70,0.3);transform:translateY(-2px)}.grade-code{font-family:'Anton',sans-serif;font-size:2.5rem;letter-spacing:0.05em;line-height:1;margin-bottom:0.5rem;color:var(--accent)}.grade-card h4{font-weight:800;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.grade-card p{font-size:0.82rem;margin:0}
+  .grade-tag{display:inline-block;font-family:'Anton',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:2px;margin-right:0.4rem;margin-top:0.3rem}.tag-beg{background:rgba(230,57,70,0.15);color:var(--accent);border:1px solid rgba(230,57,70,0.25)}.tag-int{background:rgba(255,200,50,0.1);color:#ffc832;border:1px solid rgba(255,200,50,0.2)}.tag-adv{background:rgba(255,70,70,0.1);color:#ff4646;border:1px solid rgba(255,70,70,0.2)}
+  .ch-list{margin:2rem 0}.ch-item{display:grid;grid-template-columns:70px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:start;transition:padding-left 0.2s}.ch-item:hover{padding-left:0.75rem}.ch-num{font-family:'Anton',sans-serif;font-size:3rem;color:rgba(230,57,70,0.15);line-height:1;transition:color 0.2s}.ch-item:hover .ch-num{color:var(--accent)}.ch-content h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.ch-content p{font-size:0.88rem;margin:0}.ch-tag{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.6rem;font-size:0.65rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;background:rgba(230,57,70,0.1);color:var(--accent);border:1px solid rgba(230,57,70,0.2)}
+  .nav-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}.nav-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:2rem;text-decoration:none;color:inherit;transition:all 0.25s;display:block}.nav-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 36px rgba(230,57,70,0.12)}.nav-card .icon{font-size:2.2rem;margin-bottom:0.75rem}.nav-card h3{margin:0 0 0.5rem;font-size:1rem;color:white}.nav-card p{font-size:0.85rem;margin:0}
+  .form-placeholder{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2rem;max-width:520px;margin:2rem 0}.form-placeholder p:first-child{color:white;font-weight:700;font-size:1rem;margin-bottom:0.25rem}.form-placeholder p:last-child{font-size:0.82rem;color:rgba(255,255,255,0.3);margin:0}
+  .scheme-box{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2.5rem;overflow-x:auto}.scheme-center{text-align:center;font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;text-transform:uppercase}.scheme-pipe{text-align:center;color:rgba(255,255,255,0.15)}.scheme-row{display:flex;gap:1.5rem;justify-content:center;margin:0.5rem 0;flex-wrap:wrap}.scheme-col{flex:1;min-width:130px;text-align:center}.scheme-col-title{font-weight:800;color:white;font-size:0.82rem;border-bottom:1px solid rgba(230,57,70,0.3);padding-bottom:0.25rem;margin-bottom:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+  .img-block{width:100%;margin:2rem 0;border-radius:8px;overflow:hidden;position:relative}.img-block img{width:100%;height:320px;object-fit:cover;display:block;filter:brightness(0.85)}.img-caption{position:absolute;bottom:0;left:0;right:0;padding:0.6rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));font-size:0.75rem;color:rgba(255,255,255,0.65)}
+  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}.img-grid .img-block{margin:0}.img-grid .img-block img{height:220px}
+  footer{background:#060606;padding:2rem 4rem 6rem;border-top:1px solid rgba(255,255,255,0.04)}footer p{font-size:0.72rem;color:rgba(255,255,255,0.18);line-height:1.6;max-width:800px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+  .watermark{position:fixed;bottom:18px;right:22px;z-index:9999;font-family:sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);pointer-events:none;user-select:none;white-space:nowrap}
+  @media(max-width:768px){.hero-content{grid-template-columns:1fr;padding:3rem 1.5rem 4rem}.hero-right{display:none}.inner{padding:0 1.5rem}.nav-cards{grid-template-columns:1fr}.pdf-btn-wrap{width:90%;flex-direction:column}}
+  html{width:100%}body{width:100%;max-width:100%;overflow-x:hidden}
+  
+  @media print{
+    header,footer,.pdf-btn-wrap,.watermark,.progress-bar-wrap,#inicio{display:none!important}
+    body{background:white!important;color:#111!important}
+    section.dark-sect,section.mid-sect,section.card-sect{background:white!important;padding:1.5rem 0}
+    h2,h3,.grade-code,.scheme-center{color:#111!important}
+    .section-label,.act-label,.ch-tag,.grade-tag{color:#a01525!important}
+    .activity-box{border-left:4px solid #a01525!important;background:#f5f5f5!important;break-inside:avoid}
+    .field-input{background:white!important;border:none!important;border-bottom:1px solid #ccc!important;color:#111!important}
+    .info-table td,.info-table th{border-bottom:1px solid #ddd!important;color:#333!important}
+    .tech-tile,.grade-card,.nav-card{background:#f9f9f9!important;border:1px solid #ddd!important;break-inside:avoid}
+    .tech-tile p,.grade-card p,.ch-content p,.nav-card p{color:#444!important}
+    .tech-tile h4,.grade-card h4,.ch-content h4{color:#111!important}
+    .alumno-bar{background:#f9f9f9!important;border:1px solid #ddd!important}
+    .alumno-bar input{color:#111!important;border-bottom:1px solid #999!important}
+    .alumno-bar label{color:#a01525!important}
+    .ch-num{color:#ccc!important}
+    .scheme-box{background:#f5f5f5!important;border:1px solid #ddd!important}
+    .scheme-col-title{border-bottom:1px solid #a01525!important;color:#111!important}
+    .reveal{opacity:1!important;transform:none!important}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }</style>
+</head>
+<body>
+<div class="watermark">© Jaime Redondo</div>
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill"></div></div>
+<div class="pdf-btn-wrap">
+  <button class="pdf-btn pdf-btn-clear" onclick="clearAll()">🗑 Borrar todo</button>
+  <button class="pdf-btn pdf-btn-save" onclick="savePDF()">📄 Guardar como PDF</button>
+</div>
+<div class="toast" id="toast">¡Abriendo diálogo de impresión!</div>
+
+<header>
+  <a class="logo" href="#inicio">💪 Guía de Aprendizaje — <span>ABDOMINALES</span></a>
+  <nav><a href="#activacion">Actívate</a>
+    <div class="subnav"><a href="#retate">Rétate</a><div class="subnav-menu"><a href="#conceptos">Conceptos y Anatomía</a><a href="#tecnica">Técnica y Métodos</a></div></div>
+    <a href="#entrena">Entrena y Compite</a><a href="#evalua">Evalúa</a></nav>
+</header>
+<div id="inicio"><div class="hero-bg"></div><div class="heartbeat">💪</div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag reveal">Educación Física · Guía de Aprendizaje · 2º ESO</div>
+      <h1 class="hero-title reveal" style="transition-delay:0.1s">FUERZA<span class="accent">ABDOMINAL</span></h1>
+      <div class="hero-sub reveal" style="transition-delay:0.15s">Condición Física · Fuerza Muscular · Core</div>
+      <p class="hero-desc reveal" style="transition-delay:0.2s">La fuerza abdominal es la base de toda actividad física. El <strong>core o zona media</strong> es el centro de transmisión de fuerzas: sin musculatura abdominal fuerte, no hay buen rendimiento ni buena salud postural.</p>
+      <div class="reveal" style="transition-delay:0.3s"><a href="#activacion" class="btn btn-accent">Empezar</a><a href="#retate" class="btn btn-ghost">Saber más</a></div>
+    </div>
+    <div class="hero-right" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:1rem">
+      <p style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.5rem">EJERCICIOS DEL CORE</p>
+      <div class="rep-stack">
+        <div class="rep-row"><div class="rep-name">Crunch básico</div><div class="rep-bar"><div class="rep-fill r1">Recto abdominal</div></div></div>
+        <div class="rep-row"><div class="rep-name">Plancha frontal</div><div class="rep-bar"><div class="rep-fill r4">Core completo</div></div></div>
+        <div class="rep-row"><div class="rep-name">Oblicuos</div><div class="rep-bar"><div class="rep-fill r3">Laterales tronco</div></div></div>
+        <div class="rep-row"><div class="rep-name">Hipopresivos</div><div class="rep-bar"><div class="rep-fill r2">Suelo pélvico</div></div></div>
+        <div class="rep-row"><div class="rep-name">Superman</div><div class="rep-bar"><div class="rep-fill r5">Lumbares + glúteos</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="max-width:100%;overflow:hidden;"><div class="img-block" style="border-radius:0;margin:0;"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80" alt="Core ejercicio" loading="lazy"/><div class="img-caption">La fuerza abdominal — el centro de todo movimiento deportivo y saludable</div></div></div>
+
+<section class="dark-sect" id="activacion"><div class="inner">
+  <p class="section-label reveal">Sección 01</p><h2 class="reveal">Actívate</h2>
+    <div class="alumno-bar reveal">
+      <label for="alumno-nombre">👤 Nombre del alumno/a</label>
+      <input type="text" id="alumno-nombre" placeholder="Escribe tu nombre y apellidos...">
+      <label for="alumno-curso" style="margin-left:1rem">📚 Curso</label>
+      <input type="text" id="alumno-curso" placeholder="2º ESO — Grupo..." style="max-width:180px">
+    </div>
+  <h3 class="reveal">¿Por qué trabajar el Core?</h3>
+  <p class="reveal">El <strong>core</strong> hace referencia a toda la musculatura que rodea el tronco: abdominales, lumbares, glúteos y suelo pélvico. Sin un core fuerte, cualquier movimiento deportivo pierde eficiencia y aumenta el riesgo de lesión.</p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/DHD1-2P4jfE" title="Ejercicios core" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div><h4>Actividad 1: Conocimientos Previos</h4>
+      <div class="field-group"><label class="field-label" for="a1q1">¿Qué ejercicios abdominales conoces? Lista al menos 3.</label><input class="field-input" id="a1q1" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a1q2">¿Sabes qué músculos forman el abdomen?</label><input class="field-input" id="a1q2" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a1q3">¿Por qué tener abdominales fuertes ayuda a evitar lesiones de espalda?</label><textarea class="field-input" id="a1q3" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="a1q4">¿Cuántas abdominales seguidas crees que puedes hacer?</label><input class="field-input" id="a1q4" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a1q5">¿Conoces la diferencia entre fuerza resistencia y fuerza máxima?</label><textarea class="field-input" id="a1q5" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="a1q6">¿Qué deportistas conoces que destaquen por su fuerza abdominal?</label><input class="field-input" id="a1q6" type="text" placeholder="Tu respuesta..."></div>
+  </div>
+</div></section>
+
+<section class="mid-sect" id="retate"><div class="inner">
+  <p class="section-label reveal">Sección 02</p><h2 class="reveal">Rétate</h2>
+  <p class="reveal">La fuerza es la capacidad de vencer una resistencia mediante la acción muscular. La fuerza abdominal pertenece al tipo de <strong>fuerza resistencia</strong>: mantener contracciones repetidas durante mucho tiempo sin perder eficiencia.</p>
+  <div class="nav-cards">
+    <a href="#conceptos" class="nav-card reveal"><div class="icon">🧬</div><h3>Conceptos y Anatomía</h3><p>Tipos de fuerza, músculos del core e importancia para la salud y la postura.</p></a>
+    <a href="#tecnica" class="nav-card reveal" style="transition-delay:0.1s"><div class="icon">📋</div><h3>Técnica y Métodos</h3><p>Ejercicios correctos, errores frecuentes y métodos de entrenamiento del core.</p></a>
+  </div>
+</div></section>
+
+<section class="card-sect" id="conceptos"><div class="inner">
+  <p class="section-label reveal">Sección 02A</p><h2 class="reveal">Conceptos y Anatomía</h2>
+  <h3 class="reveal">Tipos de Fuerza</h3>
+  <div class="grades-grid reveal">
+    <div class="grade-card"><div class="grade-code">MAX</div><h4>Fuerza Máxima</h4><p>Mayor fuerza en una sola contracción. Ej: halterofilia, powerlifting.</p><span class="grade-tag tag-adv">1 repetición</span></div>
+    <div class="grade-card"><div class="grade-code">RES</div><h4>Fuerza Resistencia</h4><p>Contracciones repetidas durante mucho tiempo. Ej: abdominales, fondos.</p><span class="grade-tag tag-beg">Muchas reps</span></div>
+    <div class="grade-card"><div class="grade-code">VEL</div><h4>Fuerza Velocidad</h4><p>Superar resistencias a máxima velocidad (potencia). Ej: salto, lanzamiento.</p><span class="grade-tag tag-int">Explosiva</span></div>
+    <div class="grade-card"><div class="grade-code">EST</div><h4>Fuerza Estática</h4><p>Contracción muscular sin movimiento (isométrica). Ej: plancha frontal.</p><span class="grade-tag tag-int">Sin movimiento</span></div>
+  </div>
+  <h3 class="reveal">Anatomía del Core</h3>
+  <table class="info-table reveal"><thead><tr><th>Músculo</th><th>Localización</th><th>Función</th></tr></thead><tbody>
+    <tr><td><strong>Recto abdominal</strong></td><td>Parte frontal (los "cuadraditos")</td><td>Flexión del tronco. El más trabajado en el crunch.</td></tr>
+    <tr><td><strong>Oblicuo externo</strong></td><td>Laterales, fibras diagonales hacia abajo</td><td>Rotación e inclinación lateral del tronco.</td></tr>
+    <tr><td><strong>Oblicuo interno</strong></td><td>Bajo el oblicuo externo</td><td>Rotación e inclinación lateral (lado contrario).</td></tr>
+    <tr><td><strong>Transverso abdominal</strong></td><td>Capa más profunda</td><td>Compresión del abdomen. Estabilizador principal.</td></tr>
+    <tr><td><strong>Cuadrado lumbar</strong></td><td>Zona lumbar</td><td>Extensión de columna, inclinación lateral.</td></tr>
+    <tr><td><strong>Glúteos</strong></td><td>Parte posterior de la cadera</td><td>Extensión de cadera, estabilización pélvica.</td></tr>
+  </tbody></table>
+  <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div>
+    <h4>Actividad 2: Dibuja el Core</h4>
+    <p>Dibuja la silueta del torso (vista frontal y lateral) y localiza los músculos del core. Usa un color por músculo e indica con flechas su dirección de acción.</p>
+      <div class="field-group"><label class="field-label" for="a2r">Descripción de tu dibujo: músculos localizados y sus funciones</label><textarea class="field-input" id="a2r" style="min-height:120px" placeholder="Tu respuesta..."></textarea></div>
+    <h4 style="margin-top:1.5rem">Actividad 3: Clasificación de Ejercicios</h4>
+    <p>Clasifica en tipo de fuerza: crunch, plancha, salto vertical, press de banca, sentadilla con peso, carrera 100m, remo 30 min, flexiones 2 minutos.</p>
+      <div class="field-group"><label class="field-label" for="a3r">Tu clasificación razonada</label><textarea class="field-input" id="a3r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+  </div>
+</div></section>
+
+<div class="img-grid" style="max-width:1100px;margin:2rem auto;padding:0 4rem;">
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1616279969096-54b228af9a8b?w=800&q=80" alt="Plancha" loading="lazy"/><div class="img-caption">La plancha — el ejercicio isométrico de core más completo</div></div>
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="Entrenamiento funcional" loading="lazy"/><div class="img-caption">El entrenamiento funcional integra el core en movimientos globales</div></div>
+</div>
+
+<section class="dark-sect" id="tecnica"><div class="inner">
+  <p class="section-label reveal">Sección 02B</p><h2 class="reveal">Técnica y Métodos</h2>
+  <h3 class="reveal">Ejercicios Principales del Core</h3>
+  <div class="tech-grid reveal">
+    <div class="tech-tile"><div class="t-icon">⬆</div><h4>Crunch Básico</h4><p>Tumbado boca arriba, rodillas flexionadas. Eleva solo los hombros. Lumbar siempre en contacto con el suelo.</p></div>
+    <div class="tech-tile"><div class="t-icon">⬛</div><h4>Plancha Frontal</h4><p>Antebrazos y punteras. Cuerpo recto. Core y glúteos contraídos. Sin elevar ni bajar caderas.</p></div>
+    <div class="tech-tile"><div class="t-icon">↕</div><h4>Elevación de Piernas</h4><p>Tumbado boca arriba, eleva piernas a 90° y bájalas sin tocar el suelo. Eficaz para el recto inferior.</p></div>
+    <div class="tech-tile"><div class="t-icon">🔀</div><h4>Bicicleta Abdominal</h4><p>Alterna codo derecho con rodilla izquierda y viceversa. Trabaja oblicuos y recto de forma dinámica.</p></div>
+    <div class="tech-tile"><div class="t-icon">🦸</div><h4>Superman</h4><p>Boca abajo, eleva brazo derecho y pierna izquierda simultáneamente. Trabaja lumbares y glúteos.</p></div>
+    <div class="tech-tile"><div class="t-icon">🌀</div><h4>Escaladores</h4><p>Plancha alta, rodillas al pecho alternativamente. Combina trabajo de core con cardiovascular.</p></div>
+  </div>
+  <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div>
+    <h4>Actividad 4: Errores y Correcciones</h4>
+    <p>Para cada error, explica consecuencia y corrección: tirar del cuello en el crunch, cadera elevada en plancha, contener la respiración, movimiento demasiado rápido.</p>
+      <div class="field-group"><label class="field-label" for="a4r">Análisis de los 4 errores frecuentes</label><textarea class="field-input" id="a4r" style="min-height:130px" placeholder="Tu respuesta..."></textarea></div>
+    <h4 style="margin-top:1.5rem">Actividad 5: Diseña una Secuencia de Core</h4>
+    <p>Diseña una secuencia de 6 ejercicios de core para 10 minutos. Indica: nombre, reps/tiempo, músculos trabajados y nivel de dificultad. Incluye ejercicios frontales, laterales y lumbares.</p>
+      <div class="field-group"><label class="field-label" for="a5r">Tu secuencia de 6 ejercicios de core</label><textarea class="field-input" id="a5r" style="min-height:130px" placeholder="Tu respuesta..."></textarea></div>
+  </div>
+</div></section>
+
+<section class="mid-sect" id="entrena"><div class="inner">
+  <p class="section-label reveal">Sección 03</p><h2 class="reveal">Entrena y Compite</h2>
+  <div class="ch-list">
+      <div class="ch-item reveal">
+        <div class="ch-num">01</div>
+        <div class="ch-content">
+          <h4>Test de Abdominales en 1 Minuto</h4>
+          <p>Realiza el mayor número de crunches correctos en 1 minuto. Repite al final de la unidad. Referencia: &lt;20 bajo, 20-35 medio, &gt;35 alto.</p>
+          <span class="ch-tag">⏱ Test inicial</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d1r">Resultado inicial y final — ¿cuánto mejoraste?</label>
+            <textarea class="field-input" id="d1r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.05s">
+        <div class="ch-num">02</div>
+        <div class="ch-content">
+          <h4>Reto de la Plancha</h4>
+          <p>Mantén la plancha frontal el mayor tiempo posible. Repite 3 días distintos. Referencia: 30s iniciación, 60s bueno, 90s+ excelente.</p>
+          <span class="ch-tag">⬛ Isométrico</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d2r">Tiempos de las 3 sesiones y progresión</label>
+            <textarea class="field-input" id="d2r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.1s">
+        <div class="ch-num">03</div>
+        <div class="ch-content">
+          <h4>Circuito Core 3 Rondas</h4>
+          <p>3 rondas: 20 crunches + 20 elevaciones piernas + 30s plancha + 20 bicicletas + 15 superman. Descansa 45s entre rondas.</p>
+          <span class="ch-tag">🔄 Circuito</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d3r">Tiempo total y sensaciones al finalizar cada ronda</label>
+            <textarea class="field-input" id="d3r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.15s">
+        <div class="ch-num">04</div>
+        <div class="ch-content">
+          <h4>Core Funcional</h4>
+          <p>10 sentadillas con rotación + 10 zancadas con giro + 15 escaladores + 10 burpees. Integra el core en movimientos globales.</p>
+          <span class="ch-tag">🏃 Funcional</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d4r">¿Cuál fue el ejercicio más exigente? ¿Por qué?</label>
+            <textarea class="field-input" id="d4r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.2s">
+        <div class="ch-num">05</div>
+        <div class="ch-content">
+          <h4>Duelo de Resistencia</h4>
+          <p>En parejas, plancha simultánea. 3 duelos con 2 min de descanso. ¿Hay relación entre el ganador y los resultados del test?</p>
+          <span class="ch-tag">🏆 Competición</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d5r">Resultado de los 3 duelos y reflexión sobre la relación con el test</label>
+            <textarea class="field-input" id="d5r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.25s">
+        <div class="ch-num">06</div>
+        <div class="ch-content">
+          <h4>Plan de 2 Semanas</h4>
+          <p>Diseña y lleva a cabo un plan de 2 semanas de trabajo abdominal en casa (3 días/semana). Registra cada sesión.</p>
+          <span class="ch-tag">📈 Planificación</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d6r">Tu plan y registro de las sesiones realizadas</label>
+            <textarea class="field-input" id="d6r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+  </div>
+</div></section>
+
+<section class="dark-sect" id="evalua"><div class="inner">
+  <p class="section-label reveal">Sección 04</p><h2 class="reveal">Evalúa</h2>
+  <div class="form-placeholder reveal"><p>📝 Formulario de Google</p><p>Pega aquí el iframe de tu Formulario de Google.</p></div>
+  <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div><h4>Actividad 6: Mapa Conceptual</h4><p>Completa el mapa conceptual de la Fuerza Abdominal:</p></div>
+  <div class="scheme-box reveal"><div class="scheme-center">💪 FUERZA ABDOMINAL — CORE</div><div class="scheme-pipe">|</div><div class="scheme-row"><div class="scheme-col"><div class="scheme-col-title">TIPOS DE FUERZA</div><input class="field-input" type="text" placeholder="Tipo 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Tipo 2..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Tipo 3..." style="margin-bottom:0.4rem"></div><div class="scheme-col"><div class="scheme-col-title">MÚSCULOS</div><input class="field-input" type="text" placeholder="Músculo 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Músculo 2..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Músculo 3..." style="margin-bottom:0.4rem"></div><div class="scheme-col"><div class="scheme-col-title">EJERCICIOS</div><input class="field-input" type="text" placeholder="Ejercicio 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Ejercicio 2..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Ejercicio 3..." style="margin-bottom:0.4rem"></div><div class="scheme-col"><div class="scheme-col-title">BENEFICIOS</div><input class="field-input" type="text" placeholder="Beneficio 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Beneficio 2..." style="margin-bottom:0.4rem"></div></div></div>
+</div></section>
+<footer><p>Queda expresamente prohibida cualquier reproducción, distribución, transformación, comunicación pública y/o puesta a disposición total o parcial de los contenidos o elementos, con independencia del medio empleado, si no es exclusivamente para el uso educativo de los estudiantes y familias del centro o se cuenta con la autorización previa, expresa y por escrito del titular de los correspondientes derechos.</p></footer>
+<script>
+  const STORE_KEY='ef2eso-abdominales-v1';
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  reveals.forEach(r=>obs.observe(r));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})}); 
+  window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('progressFill').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'});
+  function saveLocal(){const data={};document.querySelectorAll('input,textarea').forEach(el=>{if(el.id)data[el.id]=el.value});localStorage.setItem(STORE_KEY,JSON.stringify(data))}
+  function loadLocal(){const raw=localStorage.getItem(STORE_KEY);if(!raw)return;const data=JSON.parse(raw);Object.entries(data).forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.value=val})}
+  document.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',saveLocal));
+  function savePDF(){saveLocal();const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);setTimeout(()=>window.print(),300)}
+  function clearAll(){if(!confirm('¿Borrar todas las respuestas? Esta acción no se puede deshacer.'))return;document.querySelectorAll('input,textarea').forEach(el=>el.value='');localStorage.removeItem(STORE_KEY)}
+  window.addEventListener('load',loadLocal);
+</script>
+</body>
+</html>

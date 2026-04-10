@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Aprendizaje – HABILIDADES GIMNÁSTICAS</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#7B2FBE;--accent-light:#9B4FDE;--dark:#0A0A0A;--mid:#141414;--card:#1A1A1A;--nav-h:64px}
+  *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Mulish',sans-serif;background:var(--dark);color:#F0F0F0;min-height:100vh}
+  header{background:rgba(10,10,10,0.97);height:var(--nav-h);display:flex;align-items:center;padding:0 3rem;gap:2rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(123,47,190,0.2);backdrop-filter:blur(10px);width:100%;left:0;right:0}
+  .logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:white;text-decoration:none;display:flex;align-items:center;gap:0.5rem;white-space:nowrap}.logo span{color:var(--accent)}
+  nav{display:flex;align-items:center;gap:0.2rem;flex-wrap:wrap}nav a{font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;padding:0.4rem 0.8rem;border-radius:3px;transition:all 0.2s}nav a:hover{color:var(--accent);background:rgba(123,47,190,0.08)}
+  .subnav{position:relative}.subnav>a::after{content:' ▾';font-size:0.65rem}.subnav-menu{display:none;position:absolute;top:110%;left:0;background:var(--mid);border:1px solid rgba(123,47,190,0.2);border-radius:6px;overflow:hidden;min-width:180px;box-shadow:0 12px 30px rgba(0,0,0,0.7)}.subnav:hover .subnav-menu{display:block}.subnav-menu a{display:block;border-radius:0}
+  #inicio{min-height:94vh;background:var(--dark);position:relative;overflow:hidden;display:flex;align-items:flex-end}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 30%,rgba(123,47,190,0.1) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 15% 70%,rgba(155,79,222,0.07) 0%,transparent 50%)}
+  /* Stars / sparkle */
+  .sparkle{position:absolute;width:3px;height:3px;background:var(--accent);border-radius:50%;opacity:0;animation:twinkle 3s ease-in-out infinite}
+  .sparkle:nth-child(1){top:20%;right:20%;animation-delay:0s}.sparkle:nth-child(2){top:35%;right:35%;animation-delay:0.7s}.sparkle:nth-child(3){top:15%;right:45%;animation-delay:1.4s}.sparkle:nth-child(4){top:50%;right:15%;animation-delay:2.1s}
+  @keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:0.6;transform:scale(4)}}
+  .hero-content{position:relative;z-index:2;padding:4rem 5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:flex-end;width:100%}
+  .hero-tag{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);background:rgba(123,47,190,0.12);border:1px solid rgba(123,47,190,0.3);padding:0.35rem 0.9rem;display:inline-block;margin-bottom:2rem;border-radius:2px}
+  h1.hero-title{font-family:'Anton',sans-serif;font-size:clamp(3rem,8vw,6.5rem);line-height:0.88;letter-spacing:0.04em;color:white;text-transform:uppercase}h1.hero-title .accent{color:var(--accent);display:block}
+  .hero-sub{font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.75rem}
+  .hero-desc{font-size:0.97rem;line-height:1.85;font-weight:300;color:rgba(255,255,255,0.55);max-width:460px;margin-top:2rem;margin-bottom:2.5rem}.hero-desc strong{color:rgba(255,255,255,0.9);font-weight:700}
+  .btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;border-radius:3px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;display:inline-block}
+  .btn-accent{background:var(--accent);color:white}.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(123,47,190,0.4)}
+  .btn-ghost{background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.18);margin-left:1rem}.btn-ghost:hover{color:white;border-color:white}
+  /* Hero right — skill progression */
+  .hero-right{display:flex;flex-direction:column;justify-content:flex-end;gap:1.5rem}
+  .skill-ladder{display:flex;flex-direction:column;gap:0.5rem}
+  .skill-step{display:flex;align-items:center;gap:1.2rem;opacity:0;animation:slideStep 0.5s forwards}
+  .skill-step:nth-child(1){animation-delay:0.2s}.skill-step:nth-child(2){animation-delay:0.4s}.skill-step:nth-child(3){animation-delay:0.6s}.skill-step:nth-child(4){animation-delay:0.8s}.skill-step:nth-child(5){animation-delay:1s}
+  @keyframes slideStep{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .step-num{font-family:'Anton',sans-serif;font-size:2.5rem;color:rgba(123,47,190,0.2);line-height:1;width:45px;flex-shrink:0;text-align:right}
+  .step-card{flex:1;background:rgba(123,47,190,0.08);border:1px solid rgba(123,47,190,0.15);border-radius:4px;padding:0.8rem 1.2rem}
+  .step-card h4{font-weight:800;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:0.2rem}
+  .step-card p{font-size:0.72rem;color:rgba(255,255,255,0.4);margin:0}
+
+  .inner{max-width:1100px;margin:0 auto;padding:0 4rem}
+  section.dark-sect{background:var(--dark);padding:5rem 0}section.mid-sect{background:var(--mid);padding:5rem 0}section.card-sect{background:var(--card);padding:5rem 0}
+  .section-label{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem}.section-label::after{content:'';flex:1;height:1px;background:rgba(123,47,190,0.25);max-width:80px}
+  h2{font-family:'Anton',sans-serif;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:0.05em;text-transform:uppercase;color:white;margin-bottom:1.5rem;line-height:1}
+  h3{font-weight:800;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;margin-top:2.5rem}
+  p{font-size:0.97rem;line-height:1.8;color:rgba(255,255,255,0.58);margin-bottom:1rem}
+  iframe{border-radius:8px;margin:2rem 0;max-width:100%;border:1px solid rgba(123,47,190,0.15)}
+  .activity-box{background:var(--card);border:1px solid rgba(123,47,190,0.25);border-left:4px solid var(--accent);border-radius:4px;padding:2rem 2.5rem;margin:2.5rem 0}
+  .act-label{font-size:0.65rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem}
+  .activity-box h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.06)}.activity-box p{margin-bottom:0.75rem}
+  
+  .field-group{margin-bottom:1rem}
+  .field-label{display:block;font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.35rem}
+  .field-input{width:100%;background:rgba(255,255,255,0.04);border:none;border-bottom:2px solid rgba(123,47,190,0.3);border-radius:3px 3px 0 0;padding:0.55rem 0.75rem;font-family:'Mulish',sans-serif;font-size:0.9rem;color:#F0F0F0;transition:border-color 0.2s,background 0.2s;resize:none}
+  .field-input:focus{outline:none;border-bottom-color:var(--accent);background:rgba(123,47,190,0.07)}
+  .field-input::placeholder{color:rgba(255,255,255,0.15)}
+  textarea.field-input{min-height:80px;line-height:1.6}
+  .alumno-bar{background:rgba(123,47,190,0.07);border:1px solid rgba(123,47,190,0.3);border-radius:6px;padding:1.25rem 2rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .alumno-bar label{font-size:0.72rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);flex-shrink:0}
+  .alumno-bar input{flex:1;min-width:200px;background:transparent;border:none;border-bottom:2px solid rgba(123,47,190,0.3);padding:0.4rem 0.5rem;font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:white}
+  .alumno-bar input:focus{outline:none;border-bottom-color:var(--accent)}
+  .alumno-bar input::placeholder{color:rgba(255,255,255,0.15);font-family:'Mulish',sans-serif;font-size:0.85rem;font-weight:400;letter-spacing:0}
+  .pdf-btn-wrap{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;display:flex;gap:1rem;align-items:center}
+  .pdf-btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;padding:1rem 2.2rem;border-radius:50px;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;gap:0.6rem;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+  .pdf-btn-save{background:var(--accent);color:#0A0A0A}.pdf-btn-save:hover{background:var(--accent-light);transform:translateY(-2px)}
+  .pdf-btn-clear{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12)}.pdf-btn-clear:hover{background:rgba(255,255,255,0.14);color:white}
+  .toast{position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#0A0A0A;font-weight:800;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:50px;z-index:300;opacity:0;transition:opacity 0.3s;pointer-events:none}
+  .toast.show{opacity:1}
+  .progress-bar-wrap{position:fixed;top:var(--nav-h);left:0;right:0;height:3px;background:rgba(255,255,255,0.06);z-index:99}
+  .progress-bar-fill{height:100%;background:var(--accent);width:0%;transition:width 0.4s}
+  .info-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.info-table th{font-size:0.75rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-align:left;padding:0.75rem 1rem;border-bottom:2px solid rgba(123,47,190,0.3)}.info-table td{padding:0.85rem 1rem;font-size:0.9rem;color:rgba(255,255,255,0.65);border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:top}.info-table tr:hover td{background:rgba(123,47,190,0.05);color:rgba(255,255,255,0.85)}
+  .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;margin:2rem 0;background:rgba(255,255,255,0.04)}.tech-tile{background:var(--dark);padding:1.75rem;transition:background 0.2s}.tech-tile:hover{background:rgba(123,47,190,0.07)}.tech-tile .t-icon{font-size:2rem;margin-bottom:0.75rem}.tech-tile h4{font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.tech-tile p{font-size:0.82rem;margin:0}
+  .grades-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;margin:2rem 0}.grade-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:1.5rem;transition:all 0.2s}.grade-card:hover{border-color:rgba(123,47,190,0.35);transform:translateY(-2px)}.grade-code{font-family:'Anton',sans-serif;font-size:2rem;letter-spacing:0.05em;line-height:1;margin-bottom:0.5rem;color:var(--accent)}.grade-card h4{font-weight:800;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.grade-card p{font-size:0.82rem;margin:0}
+  .grade-tag{display:inline-block;font-family:'Anton',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:2px;margin-right:0.4rem;margin-top:0.3rem}.tag-beg{background:rgba(123,47,190,0.15);color:var(--accent);border:1px solid rgba(123,47,190,0.3)}.tag-int{background:rgba(255,200,50,0.1);color:#ffc832;border:1px solid rgba(255,200,50,0.2)}.tag-adv{background:rgba(255,70,70,0.1);color:#ff4646;border:1px solid rgba(255,70,70,0.2)}
+  .ch-list{margin:2rem 0}.ch-item{display:grid;grid-template-columns:70px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:start;transition:padding-left 0.2s}.ch-item:hover{padding-left:0.75rem}.ch-num{font-family:'Anton',sans-serif;font-size:3rem;color:rgba(123,47,190,0.18);line-height:1;transition:color 0.2s}.ch-item:hover .ch-num{color:var(--accent)}.ch-content h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.ch-content p{font-size:0.88rem;margin:0}.ch-tag{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.6rem;font-size:0.65rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;background:rgba(123,47,190,0.12);color:var(--accent);border:1px solid rgba(123,47,190,0.25)}
+  .nav-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}.nav-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:2rem;text-decoration:none;color:inherit;transition:all 0.25s;display:block}.nav-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 36px rgba(123,47,190,0.15)}.nav-card .icon{font-size:2.2rem;margin-bottom:0.75rem}.nav-card h3{margin:0 0 0.5rem;font-size:1rem;color:white}.nav-card p{font-size:0.85rem;margin:0}
+  .form-placeholder{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2rem;max-width:520px;margin:2rem 0}.form-placeholder p:first-child{color:white;font-weight:700;font-size:1rem;margin-bottom:0.25rem}.form-placeholder p:last-child{font-size:0.82rem;color:rgba(255,255,255,0.3);margin:0}
+  .scheme-box{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2.5rem;overflow-x:auto}.scheme-center{text-align:center;font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;text-transform:uppercase}.scheme-pipe{text-align:center;color:rgba(255,255,255,0.15)}.scheme-row{display:flex;gap:1.5rem;justify-content:center;margin:0.5rem 0;flex-wrap:wrap}.scheme-col{flex:1;min-width:130px;text-align:center}.scheme-col-title{font-weight:800;color:white;font-size:0.82rem;border-bottom:1px solid rgba(123,47,190,0.3);padding-bottom:0.25rem;margin-bottom:0.5rem;letter-spacing:0.1em;text-transform:uppercase}.scheme-blank{border-bottom:1px solid rgba(255,255,255,0.12);margin:0.4rem auto;width:100%;height:20px}
+  .img-block{width:100%;margin:2rem 0;border-radius:8px;overflow:hidden;position:relative}.img-block img{width:100%;height:320px;object-fit:cover;display:block;filter:brightness(0.85)}.img-caption{position:absolute;bottom:0;left:0;right:0;padding:0.6rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));font-size:0.75rem;color:rgba(255,255,255,0.65)}
+  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}.img-grid .img-block{margin:0}.img-grid .img-block img{height:220px}
+  footer{background:#060606;padding:2rem 4rem 6rem;border-top:1px solid rgba(255,255,255,0.04)}footer p{font-size:0.72rem;color:rgba(255,255,255,0.18);line-height:1.6;max-width:800px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+  .watermark{position:fixed;bottom:18px;right:22px;z-index:9999;font-family:sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);pointer-events:none;user-select:none;white-space:nowrap}
+  @media(max-width:768px){.hero-content{grid-template-columns:1fr;padding:3rem 1.5rem 4rem}.hero-right{display:none}.inner{padding:0 1.5rem}.nav-cards{grid-template-columns:1fr}}
+  html{width:100%}body{width:100%;max-width:100%;overflow-x:hidden}
+
+  @media print{header,footer,.pdf-btn-wrap,.watermark,.progress-bar-wrap,#inicio{display:none!important}body{background:white!important;color:#111!important}section.dark-sect,section.mid-sect,section.card-sect{background:white!important;padding:1.5rem 0}h2,h3,.grade-code,.scheme-center{color:#111!important}.section-label,.act-label,.ch-tag,.grade-tag{color:#5a1fa0!important}.activity-box{border-left:4px solid #5a1fa0!important;background:#f5f5f5!important;break-inside:avoid}.field-input{background:white!important;border:none!important;border-bottom:1px solid #ccc!important;color:#111!important}.info-table td,.info-table th{border-bottom:1px solid #ddd!important;color:#333!important}.tech-tile,.grade-card,.nav-card{background:#f9f9f9!important;border:1px solid #ddd!important;break-inside:avoid}.tech-tile p,.grade-card p,.ch-content p,.nav-card p{color:#444!important}.tech-tile h4,.grade-card h4,.ch-content h4{color:#111!important}.alumno-bar{background:#f9f9f9!important;border:1px solid #ccc!important}.alumno-bar input{color:#111!important;border-bottom:1px solid #999!important}.alumno-bar label{color:#5a1fa0!important}.ch-num{color:#ccc!important}.scheme-box{background:#f5f5f5!important;border:1px solid #ddd!important}.scheme-col-title{border-bottom:1px solid #5a1fa0!important;color:#111!important}.reveal{opacity:1!important;transform:none!important}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="watermark">© Jaime Redondo</div>
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill"></div></div>
+<div class="pdf-btn-wrap">
+  <button class="pdf-btn pdf-btn-clear" onclick="clearAll()">🗑 Borrar todo</button>
+  <button class="pdf-btn pdf-btn-save" onclick="savePDF()">📄 Guardar como PDF</button>
+</div>
+<div class="toast" id="toast">¡Abriendo diálogo de impresión!</div>
+<header>
+  <a class="logo" href="#inicio">🤸 Guía de Aprendizaje — <span>HABILIDADES GIMNÁSTICAS</span></a>
+  <nav>
+    <a href="#activacion">Actívate</a>
+    <div class="subnav"><a href="#retate">Rétate</a><div class="subnav-menu"><a href="#historia">Historia y Seguridad</a><a href="#tecnica">Técnica: Volteos y Pino</a></div></div>
+    <a href="#entrena">Entrena y Compite</a>
+    <a href="#evalua">Evalúa</a>
+  </nav>
+</header>
+
+<div id="inicio">
+  <div class="hero-bg"></div>
+  <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag reveal">Educación Física · Guía de Aprendizaje · 2º ESO</div>
+      <h1 class="hero-title reveal" style="transition-delay:0.1s">HABILIDADES<span class="accent">GIMNÁSTICAS</span></h1>
+      <div class="hero-sub reveal" style="transition-delay:0.15s">Expresión Corporal · Gimnasia Deportiva</div>
+      <p class="hero-desc reveal" style="transition-delay:0.2s">Las habilidades gimnásticas son la base de la <strong>conciencia corporal, el equilibrio y el control del movimiento</strong>. La voltereta adelante, la voltereta lateral y el pino son tres habilidades fundamentales que trabajan coordinación, fuerza, flexibilidad y confianza en uno mismo.</p>
+      <div class="reveal" style="transition-delay:0.3s"><a href="#activacion" class="btn btn-accent">Empezar</a><a href="#retate" class="btn btn-ghost">Saber más</a></div>
+    </div>
+    <div class="hero-right">
+      <p style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.5rem">PROGRESIÓN DE APRENDIZAJE</p>
+      <div class="skill-ladder">
+        <div class="skill-step"><div class="step-num">1</div><div class="step-card"><h4>Posición de candelita</h4><p>Control del cuerpo invertido — base del pino</p></div></div>
+        <div class="skill-step"><div class="step-num">2</div><div class="step-card"><h4>Rodada hacia delante</h4><p>Punto de partida de la voltereta adelante</p></div></div>
+        <div class="skill-step"><div class="step-num">3</div><div class="step-card"><h4>Voltereta adelante</h4><p>Primera habilidad gimnástica completa</p></div></div>
+        <div class="skill-step"><div class="step-num">4</div><div class="step-card"><h4>Voltereta lateral</h4><p>Carpa lateral — coordinación y amplitud</p></div></div>
+        <div class="skill-step"><div class="step-num">5</div><div class="step-card"><h4>Pino con apoyo</h4><p>Verticalidad, control y equilibrio invertido</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:100%;overflow:hidden;"><div class="img-block" style="border-radius:0;margin:0;"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1400&q=80" alt="Gimnasia artistica" loading="lazy"/><div class="img-caption">Las habilidades gimnásticas — el dominio del propio cuerpo como instrumento de expresión</div></div></div>
+
+<section class="dark-sect" id="activacion">
+  <div class="inner">
+    <p class="section-label reveal">Sección 01</p>
+    <h2 class="reveal">Actívate</h2>
+        <div class="alumno-bar reveal">
+      <label for="alumno-nombre">👤 Nombre del alumno/a</label>
+      <input type="text" id="alumno-nombre" placeholder="Escribe tu nombre y apellidos...">
+      <label for="alumno-curso" style="margin-left:1rem">📚 Curso</label>
+      <input type="text" id="alumno-curso" placeholder="2º ESO — Grupo..." style="max-width:180px">
+    </div>
+<h3 class="reveal">El Cuerpo como Instrumento</h3>
+    <p class="reveal">La gimnasia es una de las disciplinas más antiguas de la historia del deporte. Ya los antiguos griegos la practicaban como parte de la preparación física de sus guerreros y ciudadanos. La palabra <strong>gymnasium</strong> (del griego) significa literalmente "lugar donde se ejercita el cuerpo desnudo".</p>
+    <p class="reveal">Las habilidades gimnásticas que vamos a trabajar no son solo deportivas: son <strong>herramientas fundamentales para conocer y controlar el propio cuerpo</strong>, mejorar el equilibrio, la coordinación y perder el miedo a las posturas invertidas. Todos podemos aprender volteretas y el pino con la progresión adecuada.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/v_XtmgGr2gg" title="Habilidades gimnasticas básicas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 1: Conocimientos Previos</h4>
+      <div class="field-group"><label class="field-label" for="auto_993372">¿Sabes hacer la voltereta adelante? ¿Y la lateral? ¿Y el pino?</label><textarea class="field-input" id="auto_993372" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="auto_993729">¿Qué sensaciones crees que tiene alguien cuando está cabeza abajo?</label><textarea class="field-input" id="auto_993729" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="auto_670357">¿Qué capacidades físicas crees que trabajan las habilidades gimnásticas?</label><textarea class="field-input" id="auto_670357" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="auto_383071">¿Has practicado alguna vez gimnasia artística o rítmica?</label><input type="text" class="field-input" id="auto_383071" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="auto_642342">¿Conoces algún gimnasta olímpico famoso? ¿Qué sabes de él/ella?</label><textarea class="field-input" id="auto_642342" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="auto_051546">¿Qué precauciones de seguridad crees que son necesarias en el gimnasio?</label><textarea class="field-input" id="auto_051546" placeholder="Tu respuesta..."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<section class="mid-sect" id="retate">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02</p>
+    <h2 class="reveal">Rétate</h2>
+    <p class="reveal">Las habilidades gimnásticas son movimientos del cuerpo que combinan <strong>fuerza, flexibilidad, equilibrio, coordinación y conciencia espacial</strong>. Para aprenderlas con seguridad, es fundamental respetar la progresión: siempre de lo más sencillo a lo más complejo, siempre con colchoneta y con supervisión del profesor.</p>
+    <div class="nav-cards">
+      <a href="#historia" class="nav-card reveal"><div class="icon">📜</div><h3>Historia y Seguridad</h3><p>Origen de la gimnasia, disciplinas olímpicas y normas de seguridad en el gimnasio.</p></a>
+      <a href="#tecnica" class="nav-card reveal" style="transition-delay:0.1s"><div class="icon">🤸</div><h3>Técnica: Volteos y Pino</h3><p>Fases de la voltereta adelante, voltereta lateral y pino con sus progresiones.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="card-sect" id="historia">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02A</p>
+    <h2 class="reveal">Historia y Seguridad</h2>
+    <h3 class="reveal">La Gimnasia en los Juegos Olímpicos</h3>
+    <p class="reveal">La gimnasia artística es uno de los deportes más icónicos de los Juegos Olímpicos modernos. Aparece en los primeros Juegos de Atenas en 1896. Figuras como la rumana <strong>Nadia Comaneci</strong> (primera persona en obtener un 10 perfecto en 1976) o la estadounidense <strong>Simone Biles</strong> (la gimnasta más premiada de la historia) han llevado el deporte a su máxima expresión.</p>
+    <p class="reveal">En España, destaca <strong>Gemma Mengual</strong> en natación sincronizada y el equipo nacional de gimnasia rítmica, conocido como las "Guerreras".</p>
+    <h3 class="reveal">Disciplinas de la Gimnasia</h3>
+    <div class="grades-grid reveal">
+      <div class="grade-card"><div class="grade-code">ART</div><h4>Gimnasia Artística</h4><p>Aparatos como barra fija, barras asimétricas, potro, anillas (masculino) y suelo, viga (femenino). La más completa en cuanto a habilidades.</p><span class="grade-tag tag-adv">Olímpica</span></div>
+      <div class="grade-card"><div class="grade-code">RÍT</div><h4>Gimnasia Rítmica</h4><p>Con aparatos (aro, cuerda, pelota, mazas, cinta). Solo femenina en JJOO. Combina danza, flexibilidad y habilidades con el aparato.</p><span class="grade-tag tag-adv">Olímpica</span></div>
+      <div class="grade-card"><div class="grade-code">ACR</div><h4>Gimnasia Acrobática</h4><p>Habilidades gimnásticas realizadas en pareja o en grupo. Combina el trabajo de la base (sostener) y el ágil (el que sube y hace los elementos).</p><span class="grade-tag tag-int">Grupal</span></div>
+      <div class="grade-card"><div class="grade-code">SUE</div><h4>Gimnasia de Suelo</h4><p>Habilidades sobre colchoneta o tatami sin aparatos. Volteretas, pino, rueda lateral, rondada. La que trabajaremos en esta guía.</p><span class="grade-tag tag-beg">Básica</span></div>
+    </div>
+    <h3 class="reveal">Normas de Seguridad en el Gimnasio</h3>
+    <table class="info-table reveal">
+      <thead><tr><th>Norma</th><th>Motivo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Siempre con colchoneta</strong></td><td>Amortigua las caídas y protege la columna y articulaciones.</td></tr>
+        <tr><td><strong>Calentamiento previo obligatorio</strong></td><td>Músculos y articulaciones fríos tienen mayor riesgo de lesión.</td></tr>
+        <tr><td><strong>Nunca sin supervisión del profesor</strong></td><td>El profesor corrige la técnica y puede ayudar en la progresión.</td></tr>
+        <tr><td><strong>Respetar el turno y el espacio</strong></td><td>Una colisión con otro alumno puede causar lesiones graves.</td></tr>
+        <tr><td><strong>Sin joyas ni calzado inadecuado</strong></td><td>Los pendientes y los zapatos duros pueden lesionar al ejecutante o al compañero.</td></tr>
+        <tr><td><strong>Progresión gradual</strong></td><td>No intentar habilidades avanzadas sin dominar las previas.</td></tr>
+      </tbody>
+    </table>
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 2: Historia de la Gimnasia</h4>
+      <p>Investiga sobre Simone Biles: ¿cuántos títulos mundiales tiene?, ¿qué habilidades llevan su nombre en el código de puntuación?, ¿qué sucedió en los Juegos Olímpicos de Tokio 2020 y cómo lo gestionó? ¿Qué nos enseña su historia sobre la salud mental en el deporte?</p>
+      <div class="field-group"><label class="field-label" for="a2r">Investiga sobre Simone Biles: títulos, habilidades con su nombre, Tokio 2020 y salud mental.</label><textarea class="field-input" id="a2r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+      <br/>
+      <h4>Actividad 3: Capacidades Físicas en Gimnasia</h4>
+      <p>Para cada habilidad gimnástica que vamos a aprender, indica qué capacidades físicas son las más importantes: voltereta adelante, voltereta lateral y pino. Justifica tu respuesta.</p>
+      <div class="field-group"><label class="field-label" for="a3r">Indica las capacidades físicas más importantes en la voltereta adelante, la voltereta lateral y el pino.</label><textarea class="field-input" id="a3r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<div class="img-grid" style="max-width:1100px;margin:2rem auto;padding:0 4rem;">
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Equilibrio yoga gimnasia" loading="lazy"/><div class="img-caption">El equilibrio — la base de toda habilidad gimnástica</div></div>
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Flexibilidad gimnasia" loading="lazy"/><div class="img-caption">La flexibilidad — fundamental para ejecutar los movimientos con amplitud y seguridad</div></div>
+</div>
+
+<section class="dark-sect" id="tecnica">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02B</p>
+    <h2 class="reveal">Técnica: Volteos y Pino</h2>
+
+    <h3 class="reveal">1. Voltereta Adelante</h3>
+    <p class="reveal">La voltereta adelante es una rotación completa del cuerpo sobre el eje transversal hacia delante. Es la habilidad más básica de la gimnasia de suelo y la puerta de entrada a otras habilidades más complejas.</p>
+    <div class="tech-grid reveal">
+      <div class="tech-tile"><div class="t-icon">1️⃣</div><h4>Posición Inicial</h4><p>De pie, pies juntos o ligeramente separados. Brazos arriba. Mirada al frente. Flexiona las rodillas y lleva las manos a la colchoneta, separadas a la anchura de los hombros.</p></div>
+      <div class="tech-tile"><div class="t-icon">2️⃣</div><h4>Entrada</h4><p>Dobla los brazos, lleva la barbilla al pecho y apoya la parte superior de la cabeza (nuca-cuello) en la colchoneta. NUNCA apoyar la coronilla.</p></div>
+      <div class="tech-tile"><div class="t-icon">3️⃣</div><h4>Rotación</h4><p>Empuja con las piernas y rueda por la espalda de forma redondeada, como una pelota. Los brazos empujan para impulsar la rotación hacia arriba.</p></div>
+      <div class="tech-tile"><div class="t-icon">4️⃣</div><h4>Salida</h4><p>Cuando los pies contactan la colchoneta, empuja hacia arriba con los brazos y las piernas para acabar de pie. La posición final: de pie con brazos arriba.</p></div>
+      <div class="tech-tile"><div class="t-icon">❌</div><h4>Errores Comunes</h4><p>Apoyar la coronilla (peligroso), no redondear la espalda, perder el agrupamiento, abrir las piernas durante la rotación.</p></div>
+      <div class="tech-tile"><div class="t-icon">✅</div><h4>Progresión</h4><p>1. Roda hacia delante en colchoneta desde cuclillas. 2. Roda desde pie. 3. Voltereta adelante completa. 4. Voltereta adelante a posición de pie.</p></div>
+    </div>
+
+    <h3 class="reveal">2. Voltereta Lateral (Rueda o Carpa Lateral)</h3>
+    <p class="reveal">La voltereta lateral (también llamada <strong>rueda o carpa lateral</strong>) es una rotación sobre el eje longitudinal del cuerpo: el cuerpo pasa por la vertical mientras las manos tocan el suelo alternativamente. Es más difícil que la voltereta adelante y requiere mayor amplitud de movimiento.</p>
+    <table class="info-table reveal">
+      <thead><tr><th>Fase</th><th>Descripción técnica</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Preparación</strong></td><td>De pie, un pie adelantado. Brazos arriba. Cuerpo erecto.</td></tr>
+        <tr><td><strong>2. Apoyo de la 1ª mano</strong></td><td>Se flexiona el tronco lateralmente y se apoya la mano del lado hacia donde se gira. El brazo queda extendido.</td></tr>
+        <tr><td><strong>3. Vertical</strong></td><td>El cuerpo pasa por la posición invertida: pino lateral con piernas abiertas. Este es el momento de máxima dificultad.</td></tr>
+        <tr><td><strong>4. Apoyo de la 2ª mano</strong></td><td>La segunda mano contacta el suelo mientras la primera se despega. Las piernas siguen abiertas.</td></tr>
+        <tr><td><strong>5. Salida</strong></td><td>Los pies contactan el suelo alternativamente (primero el de salida, luego el de llegada). Se termina de lado al punto de partida.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="reveal" style="margin-top:3rem">3. El Pino (Vertical de Manos)</h3>
+    <p class="reveal">El pino es la posición vertical invertida apoyado sobre las manos. Requiere <strong>fuerza de hombros, equilibrio y confianza</strong>. Se aprende de forma progresiva, siempre con apoyo de la pared o un compañero antes de hacerlo de forma libre.</p>
+    <div class="grades-grid reveal">
+      <div class="grade-card"><div class="grade-code">P1</div><h4>Candelita</h4><p>Tumbado boca arriba, elevar las piernas y la cadera hacia arriba apoyando las manos en los riñones. El cuerpo queda vertical sobre los hombros.</p><span class="grade-tag tag-beg">Iniciación</span></div>
+      <div class="grade-card"><div class="grade-code">P2</div><h4>Pino con Pared</h4><p>De espaldas a la pared, apoyar las manos y subir los pies por la pared hasta llegar a la vertical. Mantener la posición 5-10 segundos.</p><span class="grade-tag tag-beg">Con apoyo</span></div>
+      <div class="grade-card"><div class="grade-code">P3</div><h4>Pino con Ayuda</h4><p>Un compañero sujeta las piernas mientras el ejecutante apoya las manos. Permite sentir la verticalidad sin miedo a caer.</p><span class="grade-tag tag-int">Asistido</span></div>
+      <div class="grade-card"><div class="grade-code">P4</div><h4>Pino Libre</h4><p>Pino sin apoyo. Requiere dominar las fases anteriores. El cuerpo debe estar perfectamente alineado: manos — hombros — caderas — piernas.</p><span class="grade-tag tag-adv">Autónomo</span></div>
+    </div>
+
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 4: Autoevaluación Técnica</h4>
+      <p>Después de practicar cada habilidad, completa esta autoevaluación: para la voltereta adelante, la voltereta lateral y el pino, indica en qué fase tienes más dificultad y qué necesitas mejorar. Pide a un compañero que te observe y te dé feedback.</p>
+      <div class="field-group"><label class="field-label" for="a4r">¿En qué fase de cada habilidad tienes más dificultad? ¿Qué necesitas mejorar?</label><textarea class="field-input" id="a4r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+      <br/>
+      <h4>Actividad 5: Diseña una Progresión</h4>
+      <p>Para un/a compañero/a que no sabe hacer la voltereta adelante, diseña una progresión de 5 pasos desde el nivel más básico hasta la habilidad completa. Explica qué trabaja cada paso y cómo saber que se está listo/a para pasar al siguiente.</p>
+      <div class="field-group"><label class="field-label" for="a5r">Diseña los 5 pasos de progresión para aprender la voltereta adelante desde cero.</label><textarea class="field-input" id="a5r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<section class="mid-sect" id="entrena">
+  <div class="inner">
+    <p class="section-label reveal">Sección 03</p>
+    <h2 class="reveal">Entrena y Compite</h2>
+    <div class="ch-list">
+      <div class="ch-item reveal"><div class="ch-num">01</div><div class="ch-content"><h4>Progresión Voltereta Adelante</h4><p>Realiza las 4 fases de la progresión: (1) roda desde cuclillas, (2) roda desde pie, (3) voltereta adelante completa, (4) voltereta adelante acabando de pie con brazos arriba. Tu profesor/a evalúa y da feedback. Anota en qué fase te encuentras al inicio y al final.</p><span class="ch-tag">🔄 Voltereta adelante</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d1r">Tu respuesta y reflexión</label><textarea class="field-input" id="d1r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.05s"><div class="ch-num">02</div><div class="ch-content"><h4>Progresión Voltereta Lateral</h4><p>Realiza la progresión: (1) apoyo de manos desde cuclillas lateralmente, (2) paso lateral con apoyo de manos, (3) carpa lateral lenta, (4) rueda completa. Practica hacia ambos lados. ¿Eres más hábil hacia un lado que hacia el otro?</p><span class="ch-tag">↔ Voltereta lateral</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d2r">Tu respuesta y reflexión</label><textarea class="field-input" id="d2r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.1s"><div class="ch-num">03</div><div class="ch-content"><h4>Progresión del Pino</h4><p>Practica las 4 fases del pino: candelita, pino con pared, pino con ayuda de un compañero y finalmente pino libre (si llegas a ese nivel). Anota cuántos segundos puedes mantener el pino con apoyo de la pared.</p><span class="ch-tag">🙃 Pino</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d3r">Tu respuesta y reflexión</label><textarea class="field-input" id="d3r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.15s"><div class="ch-num">04</div><div class="ch-content"><h4>Secuencia de 3 Habilidades</h4><p>Una vez aprendidas las habilidades, crea una secuencia de 3 elementos sobre la colchoneta: voltereta adelante + voltereta lateral + cualquier elemento adicional que conozcas (equilibrio, posición de silla, puente). Practica la transición entre elementos.</p><span class="ch-tag">🎭 Composición</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d4r">Tu respuesta y reflexión</label><textarea class="field-input" id="d4r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.2s"><div class="ch-num">05</div><div class="ch-content"><h4>Evaluación por Pares</h4><p>En parejas, uno ejecuta la secuencia y el otro evalúa usando una rúbrica de 4 criterios: posición de la cabeza, redondeo de la espalda, control en la salida y fluidez entre elementos. Puntuad del 1 al 3 cada criterio. Intercambiad roles.</p><span class="ch-tag">👥 Evaluación</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d5r">Tu respuesta y reflexión</label><textarea class="field-input" id="d5r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.25s"><div class="ch-num">06</div><div class="ch-content"><h4>Coreografía en Grupo</h4><p>En grupos de 4, cread una miniexhibición de 30-40 segundos que incluya las 3 habilidades aprendidas de forma sincronizada o con canon (con desfase temporal). Ensayad 3 veces y presentadla a la clase. ¡Creatividad puntuada!</p><span class="ch-tag">🌟 Exhibición</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d6r">Tu respuesta y reflexión</label><textarea class="field-input" id="d6r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-sect" id="evalua">
+  <div class="inner">
+    <p class="section-label reveal">Sección 04</p>
+    <h2 class="reveal">Evalúa</h2>
+    <div class="form-placeholder reveal"><p>📝 Formulario de Google</p><p>Pega aquí el iframe de tu Formulario de Google.</p></div>
+    <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div><h4>Actividad 6: Mapa Conceptual</h4><p>Completa el siguiente mapa conceptual de las Habilidades Gimnásticas:</p></div>
+    <div class="scheme-box reveal">
+      <div class="scheme-center">🤸 HABILIDADES GIMNÁSTICAS</div>
+      <div class="scheme-pipe">|</div>
+      <div class="scheme-row">
+        <div class="scheme-col"><div class="scheme-col-title">VOLTERETA ADELANTE</div><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"></div>
+        <div class="scheme-col"><div class="scheme-col-title">VOLTERETA LATERAL</div><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"></div>
+        <div class="scheme-col"><div class="scheme-col-title">PINO</div><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"></div>
+        <div class="scheme-col"><div class="scheme-col-title">SEGURIDAD</div><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer><p>Queda expresamente prohibida cualquier reproducción, distribución, transformación, comunicación pública y/o puesta a disposición total o parcial de los contenidos o elementos, con independencia del medio empleado, si no es exclusivamente para el uso educativo de los estudiantes y familias del centro o se cuenta con la autorización previa, expresa y por escrito del titular de los correspondientes derechos.</p></footer>
+<script>
+  const STORE_KEY='ef2eso-gimnastica-v1';
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  reveals.forEach(r=>obs.observe(r));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+  window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('progressFill').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'});
+  function saveLocal(){const data={};document.querySelectorAll('input,textarea').forEach(el=>{if(el.id)data[el.id]=el.value});localStorage.setItem(STORE_KEY,JSON.stringify(data))}
+  function loadLocal(){const raw=localStorage.getItem(STORE_KEY);if(!raw)return;const data=JSON.parse(raw);Object.entries(data).forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.value=val})}
+  document.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',saveLocal));
+  function savePDF(){saveLocal();const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);setTimeout(()=>window.print(),300)}
+  function clearAll(){if(!confirm('¿Borrar todas las respuestas?'))return;document.querySelectorAll('input,textarea').forEach(el=>el.value='');localStorage.removeItem(STORE_KEY)}
+  window.addEventListener('load',loadLocal);
+</script>
+</body>
+</html>

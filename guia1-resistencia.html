@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Guía de Aprendizaje – RESISTENCIA</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#FF6B00;--accent-light:#FF8C3A;--dark:#0A0A0A;--mid:#141414;--card:#1A1A1A;--nav-h:64px}
+  *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Mulish',sans-serif;background:var(--dark);color:#F0F0F0;min-height:100vh}
+  header{background:rgba(10,10,10,0.97);height:var(--nav-h);display:flex;align-items:center;padding:0 3rem;gap:2rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,107,0,0.15);backdrop-filter:blur(10px);width:100%;left:0;right:0}
+  .logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:white;text-decoration:none;display:flex;align-items:center;gap:0.5rem;white-space:nowrap}.logo span{color:var(--accent)}
+  nav{display:flex;align-items:center;gap:0.2rem;flex-wrap:wrap}nav a{font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;padding:0.4rem 0.8rem;border-radius:3px;transition:all 0.2s}nav a:hover{color:var(--accent);background:rgba(255,107,0,0.08)}
+  .subnav{position:relative}.subnav>a::after{content:' ▾';font-size:0.65rem}.subnav-menu{display:none;position:absolute;top:110%;left:0;background:var(--mid);border:1px solid rgba(255,107,0,0.15);border-radius:6px;overflow:hidden;min-width:170px;box-shadow:0 12px 30px rgba(0,0,0,0.7)}.subnav:hover .subnav-menu{display:block}.subnav-menu a{display:block;border-radius:0}
+  #inicio{min-height:94vh;background:var(--dark);position:relative;overflow:hidden;display:flex;align-items:flex-end}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 85% 30%,rgba(255,107,0,0.08) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 15% 70%,rgba(255,140,58,0.06) 0%,transparent 50%)}
+  .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,107,0,0.08);animation:expandRing 6s ease-out infinite}
+  .ring:nth-child(1){width:300px;height:300px;right:10%;top:15%;animation-delay:0s}.ring:nth-child(2){width:500px;height:500px;right:5%;top:5%;animation-delay:2s}.ring:nth-child(3){width:700px;height:700px;right:0%;top:-5%;animation-delay:4s}
+  @keyframes expandRing{0%{opacity:0.6;transform:scale(0.8)}100%{opacity:0;transform:scale(1.1)}}
+  .hero-content{position:relative;z-index:2;padding:4rem 5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:flex-end;width:100%}
+  .hero-tag{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.25);padding:0.35rem 0.9rem;display:inline-block;margin-bottom:2rem;border-radius:2px}
+  h1.hero-title{font-family:'Anton',sans-serif;font-size:clamp(4rem,10vw,8.5rem);line-height:0.88;letter-spacing:0.04em;color:white;text-transform:uppercase}h1.hero-title .accent{color:var(--accent);display:block}
+  .hero-sub{font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.75rem}
+  .hero-desc{font-size:0.97rem;line-height:1.85;font-weight:300;color:rgba(255,255,255,0.55);max-width:460px;margin-top:2rem;margin-bottom:2.5rem}.hero-desc strong{color:rgba(255,255,255,0.9);font-weight:700}
+  .btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;border-radius:3px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;display:inline-block}
+  .btn-accent{background:var(--accent);color:white}.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,0,0.35)}
+  .btn-ghost{background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.18);margin-left:1rem}.btn-ghost:hover{color:white;border-color:white}
+  .hero-right{display:flex;flex-direction:column;gap:0.5rem;justify-content:flex-end}
+  .energy-bar{display:flex;align-items:center;gap:1rem;opacity:0;animation:fadeInBar 0.5s forwards}
+  .energy-bar:nth-child(1){animation-delay:0.3s}.energy-bar:nth-child(2){animation-delay:0.5s}.energy-bar:nth-child(3){animation-delay:0.7s}.energy-bar:nth-child(4){animation-delay:0.9s}.energy-bar:nth-child(5){animation-delay:1.1s}
+  @keyframes fadeInBar{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+  .energy-label{font-family:'Anton',sans-serif;font-size:0.8rem;color:rgba(255,255,255,0.5);width:70px;text-align:right;flex-shrink:0}
+  .energy-fill-wrap{flex:1;background:rgba(255,255,255,0.05);border-radius:2px;height:24px;overflow:hidden}
+  .energy-fill{height:100%;border-radius:2px;display:flex;align-items:center;padding:0 0.75rem}
+  .energy-fill span{font-size:0.68rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:rgba(0,0,0,0.75);white-space:nowrap}
+  .e1{width:20%;background:rgba(255,107,0,0.45)}.e2{width:40%;background:rgba(255,107,0,0.6)}.e3{width:60%;background:rgba(255,107,0,0.75)}.e4{width:80%;background:var(--accent)}.e5{width:95%;background:linear-gradient(90deg,var(--accent),var(--accent-light))}
+  .inner{max-width:1100px;margin:0 auto;padding:0 4rem}
+  section.dark-sect{background:var(--dark);padding:5rem 0}section.mid-sect{background:var(--mid);padding:5rem 0}section.card-sect{background:var(--card);padding:5rem 0}
+  .section-label{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem}.section-label::after{content:'';flex:1;height:1px;background:rgba(255,107,0,0.2);max-width:80px}
+  h2{font-family:'Anton',sans-serif;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:0.05em;text-transform:uppercase;color:white;margin-bottom:1.5rem;line-height:1}
+  h3{font-weight:800;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;margin-top:2.5rem}
+  p{font-size:0.97rem;line-height:1.8;color:rgba(255,255,255,0.58);margin-bottom:1rem}
+  iframe{border-radius:8px;margin:2rem 0;max-width:100%;border:1px solid rgba(255,107,0,0.12)}
+  .activity-box{background:var(--card);border:1px solid rgba(255,107,0,0.2);border-left:4px solid var(--accent);border-radius:4px;padding:2rem 2.5rem;margin:2.5rem 0}
+  .act-label{font-size:0.65rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem}
+  .activity-box h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.06)}.activity-box p{margin-bottom:0.75rem}
+  
+  .field-group{margin-bottom:1rem}
+  .field-label{display:block;font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.35rem}
+  .field-input{width:100%;background:rgba(255,255,255,0.04);border:none;border-bottom:2px solid rgba(255,107,0,0.25);border-radius:3px 3px 0 0;padding:0.55rem 0.75rem;font-family:'Mulish',sans-serif;font-size:0.9rem;color:#F0F0F0;transition:border-color 0.2s,background 0.2s;resize:none}
+  .field-input:focus{outline:none;border-bottom-color:var(--accent);background:rgba(255,107,0,0.06)}
+  .field-input::placeholder{color:rgba(255,255,255,0.15)}
+  textarea.field-input{min-height:80px;line-height:1.6}
+  .alumno-bar{background:rgba(255,107,0,0.06);border:1px solid rgba(255,107,0,0.25);border-radius:6px;padding:1.25rem 2rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .alumno-bar label{font-size:0.72rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);flex-shrink:0}
+  .alumno-bar input{flex:1;min-width:200px;background:transparent;border:none;border-bottom:2px solid rgba(255,107,0,0.25);padding:0.4rem 0.5rem;font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:white}
+  .alumno-bar input:focus{outline:none;border-bottom-color:var(--accent)}
+  .alumno-bar input::placeholder{color:rgba(255,255,255,0.15);font-family:'Mulish',sans-serif;font-size:0.85rem;font-weight:400;letter-spacing:0}
+  .pdf-btn-wrap{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;display:flex;gap:1rem;align-items:center}
+  .pdf-btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;padding:1rem 2.2rem;border-radius:50px;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;gap:0.6rem;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+  .pdf-btn-save{background:var(--accent);color:#0A0A0A}.pdf-btn-save:hover{background:var(--accent-light);transform:translateY(-2px)}
+  .pdf-btn-clear{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12)}.pdf-btn-clear:hover{background:rgba(255,255,255,0.14);color:white}
+  .toast{position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#0A0A0A;font-weight:800;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:50px;z-index:300;opacity:0;transition:opacity 0.3s;pointer-events:none}
+  .toast.show{opacity:1}
+  .progress-bar-wrap{position:fixed;top:var(--nav-h);left:0;right:0;height:3px;background:rgba(255,255,255,0.06);z-index:99}
+  .progress-bar-fill{height:100%;background:var(--accent);width:0%;transition:width 0.4s}
+  .info-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.info-table th{font-size:0.75rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-align:left;padding:0.75rem 1rem;border-bottom:2px solid rgba(255,107,0,0.3)}.info-table td{padding:0.85rem 1rem;font-size:0.9rem;color:rgba(255,255,255,0.65);border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:top}.info-table tr:hover td{background:rgba(255,107,0,0.04);color:rgba(255,255,255,0.85)}
+  .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;margin:2rem 0;background:rgba(255,255,255,0.04)}.tech-tile{background:var(--dark);padding:1.75rem;transition:background 0.2s}.tech-tile:hover{background:rgba(255,107,0,0.06)}.tech-tile .t-icon{font-size:2rem;margin-bottom:0.75rem}.tech-tile h4{font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.tech-tile p{font-size:0.82rem;margin:0}
+  .grades-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;margin:2rem 0}.grade-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:1.5rem;transition:all 0.2s}.grade-card:hover{border-color:rgba(255,107,0,0.3);transform:translateY(-2px)}.grade-code{font-family:'Anton',sans-serif;font-size:2.5rem;letter-spacing:0.05em;line-height:1;margin-bottom:0.5rem;color:var(--accent)}.grade-card h4{font-weight:800;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.grade-card p{font-size:0.82rem;margin:0}
+  .grade-tag{display:inline-block;font-family:'Anton',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:2px;margin-right:0.4rem;margin-top:0.3rem}.tag-beg{background:rgba(255,107,0,0.15);color:var(--accent);border:1px solid rgba(255,107,0,0.25)}.tag-int{background:rgba(255,200,50,0.1);color:#ffc832;border:1px solid rgba(255,200,50,0.2)}.tag-adv{background:rgba(255,70,70,0.1);color:#ff4646;border:1px solid rgba(255,70,70,0.2)}
+  .ch-list{margin:2rem 0}.ch-item{display:grid;grid-template-columns:70px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:start;transition:padding-left 0.2s}.ch-item:hover{padding-left:0.75rem}.ch-num{font-family:'Anton',sans-serif;font-size:3rem;color:rgba(255,107,0,0.15);line-height:1;transition:color 0.2s}.ch-item:hover .ch-num{color:var(--accent)}.ch-content h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.ch-content p{font-size:0.88rem;margin:0}.ch-tag{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.6rem;font-size:0.65rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;background:rgba(255,107,0,0.1);color:var(--accent);border:1px solid rgba(255,107,0,0.2)}
+  .nav-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}.nav-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:2rem;text-decoration:none;color:inherit;transition:all 0.25s;display:block}.nav-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 36px rgba(255,107,0,0.12)}.nav-card .icon{font-size:2.2rem;margin-bottom:0.75rem}.nav-card h3{margin:0 0 0.5rem;font-size:1rem;color:white}.nav-card p{font-size:0.85rem;margin:0}
+  .form-placeholder{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2rem;max-width:520px;margin:2rem 0}.form-placeholder p:first-child{color:white;font-weight:700;font-size:1rem;margin-bottom:0.25rem}.form-placeholder p:last-child{font-size:0.82rem;color:rgba(255,255,255,0.3);margin:0}
+  .scheme-box{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2.5rem;overflow-x:auto}.scheme-center{text-align:center;font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;text-transform:uppercase}.scheme-pipe{text-align:center;color:rgba(255,255,255,0.15)}.scheme-row{display:flex;gap:1.5rem;justify-content:center;margin:0.5rem 0;flex-wrap:wrap}.scheme-col{flex:1;min-width:130px;text-align:center}.scheme-col-title{font-weight:800;color:white;font-size:0.82rem;border-bottom:1px solid rgba(255,107,0,0.3);padding-bottom:0.25rem;margin-bottom:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+  .img-block{width:100%;margin:2rem 0;border-radius:8px;overflow:hidden;position:relative}.img-block img{width:100%;height:320px;object-fit:cover;display:block;filter:brightness(0.85)}.img-caption{position:absolute;bottom:0;left:0;right:0;padding:0.6rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));font-size:0.75rem;color:rgba(255,255,255,0.65)}
+  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}.img-grid .img-block{margin:0}.img-grid .img-block img{height:220px}
+  footer{background:#060606;padding:2rem 4rem 6rem;border-top:1px solid rgba(255,255,255,0.04)}footer p{font-size:0.72rem;color:rgba(255,255,255,0.18);line-height:1.6;max-width:800px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+  .watermark{position:fixed;bottom:18px;right:22px;z-index:9999;font-family:sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);pointer-events:none;user-select:none;white-space:nowrap}
+  @media(max-width:768px){.hero-content{grid-template-columns:1fr;padding:3rem 1.5rem 4rem}.hero-right{display:none}.inner{padding:0 1.5rem}.nav-cards{grid-template-columns:1fr}.pdf-btn-wrap{width:90%;flex-direction:column}}
+  html{width:100%}body{width:100%;max-width:100%;overflow-x:hidden}
+  
+  @media print{
+    header,footer,.pdf-btn-wrap,.watermark,.progress-bar-wrap,#inicio{display:none!important}
+    body{background:white!important;color:#111!important}
+    section.dark-sect,section.mid-sect,section.card-sect{background:white!important;padding:1.5rem 0}
+    h2,h3,.grade-code,.scheme-center{color:#111!important}
+    .section-label,.act-label,.ch-tag,.grade-tag{color:#c95000!important}
+    .activity-box{border-left:4px solid #c95000!important;background:#f5f5f5!important;break-inside:avoid}
+    .field-input{background:white!important;border:none!important;border-bottom:1px solid #ccc!important;color:#111!important}
+    .info-table td,.info-table th{border-bottom:1px solid #ddd!important;color:#333!important}
+    .tech-tile,.grade-card,.nav-card{background:#f9f9f9!important;border:1px solid #ddd!important;break-inside:avoid}
+    .tech-tile p,.grade-card p,.ch-content p,.nav-card p{color:#444!important}
+    .tech-tile h4,.grade-card h4,.ch-content h4{color:#111!important}
+    .alumno-bar{background:#f9f9f9!important;border:1px solid #ddd!important}
+    .alumno-bar input{color:#111!important;border-bottom:1px solid #999!important}
+    .alumno-bar label{color:#c95000!important}
+    .ch-num{color:#ccc!important}
+    .scheme-box{background:#f5f5f5!important;border:1px solid #ddd!important}
+    .scheme-col-title{border-bottom:1px solid #c95000!important;color:#111!important}
+    .reveal{opacity:1!important;transform:none!important}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="watermark">© Jaime Redondo</div>
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill"></div></div>
+<div class="pdf-btn-wrap">
+  <button class="pdf-btn pdf-btn-clear" onclick="clearAll()">🗑 Borrar todo</button>
+  <button class="pdf-btn pdf-btn-save" onclick="savePDF()">📄 Guardar como PDF</button>
+</div>
+<div class="toast" id="toast">¡Abriendo diálogo de impresión!</div>
+
+<header>
+  <a class="logo" href="#inicio">🏃 Guía de Aprendizaje — <span>RESISTENCIA</span></a>
+  <nav>
+    <a href="#activacion">Actívate</a>
+    <div class="subnav"><a href="#retate">Rétate</a><div class="subnav-menu"><a href="#conceptos">Conceptos Clave</a><a href="#tecnica">Métodos</a></div></div>
+    <a href="#entrena">Entrena y Compite</a>
+    <a href="#evalua">Evalúa</a>
+  </nav>
+</header>
+
+<div id="inicio">
+  <div class="hero-bg"></div>
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag reveal">Educación Física · Guía de Aprendizaje · 2º ESO</div>
+      <h1 class="hero-title reveal" style="transition-delay:0.1s">RESIS<span class="accent">TENCIA</span></h1>
+      <div class="hero-sub reveal" style="transition-delay:0.15s">Condición Física · Capacidades Físicas Básicas</div>
+      <p class="hero-desc reveal" style="transition-delay:0.2s">La resistencia es la <strong>capacidad de mantener un esfuerzo físico durante el mayor tiempo posible</strong>. Es la base de toda condición física y un pilar fundamental para la <strong>salud, el rendimiento deportivo y el bienestar</strong>.</p>
+      <div class="reveal" style="transition-delay:0.3s"><a href="#activacion" class="btn btn-accent">Empezar</a><a href="#retate" class="btn btn-ghost">Saber más</a></div>
+    </div>
+    <div class="hero-right">
+      <p style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1rem;text-align:right">INTENSIDAD DEL ESFUERZO</p>
+      <div class="energy-bar"><div class="energy-label">Muy baja</div><div class="energy-fill-wrap"><div class="energy-fill e1"><span>Paseo</span></div></div></div>
+      <div class="energy-bar"><div class="energy-label">Baja</div><div class="energy-fill-wrap"><div class="energy-fill e2"><span>Trote suave</span></div></div></div>
+      <div class="energy-bar"><div class="energy-label">Media</div><div class="energy-fill-wrap"><div class="energy-fill e3"><span>Carrera continua</span></div></div></div>
+      <div class="energy-bar"><div class="energy-label">Alta</div><div class="energy-fill-wrap"><div class="energy-fill e4"><span>Fartlek</span></div></div></div>
+      <div class="energy-bar"><div class="energy-label">Máxima</div><div class="energy-fill-wrap"><div class="energy-fill e5"><span>Interval Training</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:100%;overflow:hidden;"><div class="img-block" style="border-radius:0;margin:0;"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80" alt="Persona corriendo" loading="lazy"/><div class="img-caption">La resistencia — la capacidad que nos permite ir más lejos cada día</div></div></div>
+
+<section class="dark-sect" id="activacion">
+  <div class="inner">
+    <p class="section-label reveal">Sección 01</p>
+    <h2 class="reveal">Actívate</h2>
+    <div class="alumno-bar reveal">
+      <label for="alumno-nombre">👤 Nombre del alumno/a</label>
+      <input type="text" id="alumno-nombre" placeholder="Escribe tu nombre y apellidos...">
+      <label for="alumno-curso" style="margin-left:1rem">📚 Curso</label>
+      <input type="text" id="alumno-curso" placeholder="2º ESO — Grupo..." style="max-width:180px">
+    </div>
+    <h3 class="reveal">¡Bienvenid@ a la Resistencia!</h3>
+    <p class="reveal">La resistencia está presente en tu vida cotidiana: cuando subes escaleras, corres para coger el autobús o juegas un partido. Los primeros <em>Homo sapiens</em> eran capaces de correr horas para cazar a sus presas por agotamiento — técnica llamada <strong>caza por persistencia</strong>.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VTMvbv_t29E" title="Resistencia física" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 1: Conocimientos Previos</h4>
+      <div class="field-group"><label class="field-label" for="a1q1">¿Qué deporte o actividad física practicas habitualmente?</label><input class="field-input" id="a1q1" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a1q2">¿Cuánto tiempo puedes correr sin parar?</label><input class="field-input" id="a1q2" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a1q3">¿Conoces la diferencia entre resistencia aeróbica y anaeróbica?</label><textarea class="field-input" id="a1q3" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="a1q4">¿Sabes qué es la frecuencia cardíaca? ¿Cómo se mide?</label><textarea class="field-input" id="a1q4" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="a1q5">¿Qué deportistas conoces que destaquen por su resistencia?</label><input class="field-input" id="a1q5" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a1q6">¿Crees que la resistencia solo importa en deportes de larga duración? ¿Por qué?</label><textarea class="field-input" id="a1q6" placeholder="Tu respuesta..."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<section class="mid-sect" id="retate">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02</p>
+    <h2 class="reveal">Rétate</h2>
+    <p class="reveal">La resistencia es una de las <strong>capacidades físicas básicas</strong> junto con la fuerza, la velocidad y la flexibilidad. Se define como la capacidad del organismo para soportar un esfuerzo físico mantenido en el tiempo, retrasando la aparición de la fatiga.</p>
+    <div class="nav-cards">
+      <a href="#conceptos" class="nav-card reveal"><div class="icon">🫀</div><h3>Conceptos Clave</h3><p>Tipos de resistencia, frecuencia cardíaca y zonas de entrenamiento.</p></a>
+      <a href="#tecnica" class="nav-card reveal" style="transition-delay:0.1s"><div class="icon">📈</div><h3>Métodos de Entrenamiento</h3><p>Carrera continua, fartlek, interval training y principios del entrenamiento.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="card-sect" id="conceptos">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02A</p>
+    <h2 class="reveal">Conceptos Clave</h2>
+    <h3 class="reveal">Tipos de Resistencia</h3>
+    <div class="grades-grid reveal">
+      <div class="grade-card"><div class="grade-code">AER</div><h4>Resistencia Aeróbica</h4><p>Con presencia de oxígeno. Intensidad baja-media (&lt;70% FC máx). Duración prolongada.</p><span class="grade-tag tag-beg">Larga duración</span></div>
+      <div class="grade-card"><div class="grade-code">ANA</div><h4>Resistencia Anaeróbica</h4><p>Sin oxígeno. Intensidad alta (&gt;80% FC máx). Corta duración. Se genera ácido láctico.</p><span class="grade-tag tag-adv">Alta intensidad</span></div>
+      <div class="grade-card"><div class="grade-code">GEN</div><h4>Resistencia General</h4><p>Implica grandes grupos musculares. Mayor efecto sobre el sistema cardiorrespiratorio.</p><span class="grade-tag tag-int">Global</span></div>
+      <div class="grade-card"><div class="grade-code">LOC</div><h4>Resistencia Local</h4><p>Implica grupos musculares pequeños o aislados. Ej: resistencia del bíceps en escalada.</p><span class="grade-tag tag-beg">Segmentaria</span></div>
+    </div>
+    <h3 class="reveal">La Frecuencia Cardíaca — FC máxima = 220 − edad</h3>
+    <table class="info-table reveal">
+      <thead><tr><th>Zona</th><th>% FC Máx</th><th>Tipo de esfuerzo</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Zona 1 — Regenerativa</strong></td><td>50–60%</td><td>Muy baja intensidad. Recuperación activa.</td><td>Paseo rápido</td></tr>
+        <tr><td><strong>Zona 2 — Aeróbica</strong></td><td>60–70%</td><td>Quema de grasas. Base de la resistencia.</td><td>Trote suave 30 min</td></tr>
+        <tr><td><strong>Zona 3 — Aeróbica intensa</strong></td><td>70–80%</td><td>Mejora cardiovascular. Umbral aeróbico.</td><td>Carrera continua</td></tr>
+        <tr><td><strong>Zona 4 — Umbral anaeróbico</strong></td><td>80–90%</td><td>Tolerancia al lactato. Mejora el rendimiento.</td><td>Fartlek, series</td></tr>
+        <tr><td><strong>Zona 5 — Máxima</strong></td><td>90–100%</td><td>Esfuerzo máximo. Muy corta duración.</td><td>Sprint, interval training</td></tr>
+      </tbody>
+    </table>
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 2: Calcula tu FC Máxima</h4>
+      <p>Aplica la fórmula 220 − edad y rellena tu tabla de zonas personalizadas:</p>
+      <div class="field-group"><label class="field-label" for="a2fc">Mi edad y FC Máxima teórica (220 − edad = ___ ppm)</label><input class="field-input" id="a2fc" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a2zonas">Mis zonas de entrenamiento (Zona 1 a Zona 5 con mis valores en ppm)</label><textarea class="field-input" id="a2zonas" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+      <h4 style="margin-top:1.5rem">Actividad 3: Aeróbico vs Anaeróbico</h4>
+      <p>Clasifica estos deportes en aeróbico o anaeróbico y justifica: maratón, 100m lisos, ciclismo de fondo, salto de longitud, natación 1500m, halterofilia, baloncesto, remo olímpico.</p>
+      <div class="field-group"><label class="field-label" for="a3r">Tu clasificación razonada</label><textarea class="field-input" id="a3r" style="min-height:120px" placeholder="Tu respuesta..."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<div class="img-grid" style="max-width:1100px;margin:2rem auto;padding:0 4rem;">
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&q=80" alt="Carrera" loading="lazy"/><div class="img-caption">Carrera continua — el método más accesible para la resistencia aeróbica</div></div>
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&q=80" alt="Series atletismo" loading="lazy"/><div class="img-caption">Interval Training — alternando esfuerzo y descanso para mejorar el umbral</div></div>
+</div>
+
+<section class="dark-sect" id="tecnica">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02B</p>
+    <h2 class="reveal">Métodos de Entrenamiento</h2>
+    <h3 class="reveal">Métodos Continuos</h3>
+    <div class="tech-grid reveal">
+      <div class="tech-tile"><div class="t-icon">🏃</div><h4>Carrera Continua</h4><p>Intensidad baja-media sin interrupciones. Ideal para mejorar la base aeróbica. Zona 2-3 de FC.</p></div>
+      <div class="tech-tile"><div class="t-icon">🦊</div><h4>Fartlek</h4><p>Carrera con cambios voluntarios de ritmo. Mezcla zonas aeróbicas y anaeróbicas según las sensaciones.</p></div>
+      <div class="tech-tile"><div class="t-icon">🔺</div><h4>Progresión</h4><p>Aumento gradual del ritmo. Se empieza en zona 2 y se termina en zona 4.</p></div>
+    </div>
+    <h3 class="reveal">Métodos Fraccionados</h3>
+    <div class="tech-grid reveal">
+      <div class="tech-tile"><div class="t-icon">⚡</div><h4>Interval Training</h4><p>Alternancia de esfuerzo intenso (80-95% FC) con recuperación incompleta.</p></div>
+      <div class="tech-tile"><div class="t-icon">📏</div><h4>Series</h4><p>Repetición de distancias concretas con recuperación completa. Ej: 6 × 400m.</p></div>
+      <div class="tech-tile"><div class="t-icon">🔄</div><h4>Circuit Training</h4><p>Circuito de estaciones combinando resistencia aeróbica y muscular con breves descansos.</p></div>
+    </div>
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 4: Diseña tu Sesión de Fartlek</h4>
+      <p>Diseña una sesión de fartlek de 20 minutos: calentamiento, descripción del fartlek (cambios de ritmo, zonas de FC) y vuelta a la calma.</p>
+      <div class="field-group"><label class="field-label" for="a4r">Tu diseño de sesión de fartlek</label><textarea class="field-input" id="a4r" style="min-height:130px" placeholder="Tu respuesta..."></textarea></div>
+      <h4 style="margin-top:1.5rem">Actividad 5: El Test de Cooper</h4>
+      <p>Investiga: ¿qué mide el Test de Cooper?, ¿cómo se realiza?, ¿cuáles son los valores de referencia para tu edad y sexo?, ¿cuál sería tu objetivo de mejora personal?</p>
+      <div class="field-group"><label class="field-label" for="a5r">Tu respuesta sobre el Test de Cooper</label><textarea class="field-input" id="a5r" style="min-height:100px" placeholder="Tu respuesta..."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<section class="mid-sect" id="entrena">
+  <div class="inner">
+    <p class="section-label reveal">Sección 03</p>
+    <h2 class="reveal">Entrena y Compite</h2>
+    <p class="reveal">Completa los desafíos, registra tus resultados y analiza tu progreso. La clave de la resistencia es la <strong>constancia</strong>, no la intensidad.</p>
+    <div class="ch-list">
+      <div class="ch-item reveal">
+        <div class="ch-num">01</div>
+        <div class="ch-content">
+          <h4>Test de 6 Minutos</h4>
+          <p>Corre 6 minutos a ritmo constante. Mide la distancia recorrida y anota tu FC antes, durante y al final. Repite al final de la unidad y compara.</p>
+          <span class="ch-tag">🟢 Aeróbico</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d1r">Distancia, FC y sensaciones — inicio y final de unidad</label>
+            <textarea class="field-input" id="d1r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.05s">
+        <div class="ch-num">02</div>
+        <div class="ch-content">
+          <h4>Fartlek Naturaleza</h4>
+          <p>15 minutos de fartlek: trota, sprint, camina. Varía el ritmo mínimo 6 veces. Anota cómo cambia tu respiración con cada cambio de intensidad.</p>
+          <span class="ch-tag">🟡 Fartlek</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d2r">¿Cómo cambió tu respiración? ¿Qué zona de FC alcanzaste en los sprints?</label>
+            <textarea class="field-input" id="d2r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.1s">
+        <div class="ch-num">03</div>
+        <div class="ch-content">
+          <h4>Circuito de Resistencia</h4>
+          <p>3 rondas: 30s carrera en el sitio + 20 saltos comba + 15 sentadillas + 30s escaladores. Descansa 1 min entre rondas.</p>
+          <span class="ch-tag">🟡 Circuit Training</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d3r">Repeticiones completadas en cada ejercicio y sensaciones al terminar</label>
+            <textarea class="field-input" id="d3r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.15s">
+        <div class="ch-num">04</div>
+        <div class="ch-content">
+          <h4>Interval Training Básico</h4>
+          <p>6 repeticiones de: 30s a intensidad alta + 60s recuperando. Mide tu FC al terminar cada intervalo.</p>
+          <span class="ch-tag">🔴 Anaeróbico</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d4r">FC en cada intervalo y reflexión: ¿recuperas antes con el tiempo?</label>
+            <textarea class="field-input" id="d4r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.2s">
+        <div class="ch-num">05</div>
+        <div class="ch-content">
+          <h4>Plan de Mejora Personal</h4>
+          <p>Diseña un plan de 3 semanas: 2-3 sesiones/semana, método elegido, duración e intensidad de cada sesión.</p>
+          <span class="ch-tag">🟡 Planificación</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d5r">Tu plan semana a semana y los resultados obtenidos</label>
+            <textarea class="field-input" id="d5r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.25s">
+        <div class="ch-num">06</div>
+        <div class="ch-content">
+          <h4>Reto de la Carrera Continua</h4>
+          <p>Corre 20 min sin parar manteniendo conversación fluida. Anótalo en 3 sesiones distintas y observa tu progresión.</p>
+          <span class="ch-tag">🟢 Reto personal</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d6r">Tiempos de las 3 sesiones y progresión observada</label>
+            <textarea class="field-input" id="d6r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-sect" id="evalua">
+  <div class="inner">
+    <p class="section-label reveal">Sección 04</p>
+    <h2 class="reveal">Evalúa</h2>
+    <h3 class="reveal">Test Teórico</h3>
+    <div class="form-placeholder reveal"><p>📝 Formulario de Google</p><p>Pega aquí el iframe de tu Formulario de Google.</p></div>
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 6: Mapa Conceptual</h4>
+      <p>Completa el mapa conceptual de la Resistencia rellenando cada celda:</p>
+    </div>
+    <div class="scheme-box reveal">
+      <div class="scheme-center">🏃 RESISTENCIA</div>
+      <div class="field-group" style="max-width:500px;margin:0.5rem auto 1rem"><label class="field-label" for="mc0">Definición de resistencia</label><input class="field-input" id="mc0" type="text" placeholder="La resistencia es..."></div>
+      <div class="scheme-pipe">|</div>
+      <div class="scheme-row">
+        <div class="scheme-col"><div class="scheme-col-title">AERÓBICA</div><input class="field-input" type="text" placeholder="Característica..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Ejemplo..."></div>
+        <div class="scheme-col"><div class="scheme-col-title">ANAERÓBICA</div><input class="field-input" type="text" placeholder="Característica..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Ejemplo..."></div>
+      </div>
+      <div class="scheme-pipe" style="margin-top:1rem">|</div>
+      <div class="scheme-row">
+        <div class="scheme-col"><div class="scheme-col-title">MÉTODOS CONTINUOS</div><input class="field-input" type="text" placeholder="Método 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Método 2..."></div>
+        <div class="scheme-col"><div class="scheme-col-title">MÉTODOS FRACCIONADOS</div><input class="field-input" type="text" placeholder="Método 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Método 2..."></div>
+        <div class="scheme-col"><div class="scheme-col-title">PRINCIPIOS</div><input class="field-input" type="text" placeholder="Principio 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Principio 2..."></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer><p>Queda expresamente prohibida cualquier reproducción, distribución, transformación, comunicación pública y/o puesta a disposición total o parcial de los contenidos o elementos, con independencia del medio empleado, si no es exclusivamente para el uso educativo de los estudiantes y familias del centro o se cuenta con la autorización previa, expresa y por escrito del titular de los correspondientes derechos.</p></footer>
+<script>
+  const STORE_KEY='ef2eso-resistencia-v1';
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  reveals.forEach(r=>obs.observe(r));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})}); 
+  window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('progressFill').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'});
+  function saveLocal(){const data={};document.querySelectorAll('input,textarea').forEach(el=>{if(el.id)data[el.id]=el.value});localStorage.setItem(STORE_KEY,JSON.stringify(data))}
+  function loadLocal(){const raw=localStorage.getItem(STORE_KEY);if(!raw)return;const data=JSON.parse(raw);Object.entries(data).forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.value=val})}
+  document.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',saveLocal));
+  function savePDF(){saveLocal();const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);setTimeout(()=>window.print(),300)}
+  function clearAll(){if(!confirm('¿Borrar todas las respuestas? Esta acción no se puede deshacer.'))return;document.querySelectorAll('input,textarea').forEach(el=>el.value='');localStorage.removeItem(STORE_KEY)}
+  window.addEventListener('load',loadLocal);
+</script>
+</body>
+</html>

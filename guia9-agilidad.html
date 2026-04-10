@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Aprendizaje – AGILIDAD</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#00E5FF;--accent-light:#40EFFF;--dark:#0A0A0A;--mid:#141414;--card:#1A1A1A;--nav-h:64px}
+  *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Mulish',sans-serif;background:var(--dark);color:#F0F0F0;min-height:100vh}
+  header{background:rgba(10,10,10,0.97);height:var(--nav-h);display:flex;align-items:center;padding:0 3rem;gap:2rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(0,229,255,0.15);backdrop-filter:blur(10px);width:100%;left:0;right:0}
+  .logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:white;text-decoration:none;display:flex;align-items:center;gap:0.5rem;white-space:nowrap}.logo span{color:var(--accent)}
+  nav{display:flex;align-items:center;gap:0.2rem;flex-wrap:wrap}nav a{font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;padding:0.4rem 0.8rem;border-radius:3px;transition:all 0.2s}nav a:hover{color:var(--accent);background:rgba(0,229,255,0.06)}
+  .subnav{position:relative}.subnav>a::after{content:' ▾';font-size:0.65rem}.subnav-menu{display:none;position:absolute;top:110%;left:0;background:var(--mid);border:1px solid rgba(0,229,255,0.12);border-radius:6px;overflow:hidden;min-width:170px;box-shadow:0 12px 30px rgba(0,0,0,0.7)}.subnav:hover .subnav-menu{display:block}.subnav-menu a{display:block;border-radius:0}
+  #inicio{min-height:94vh;background:var(--dark);position:relative;overflow:hidden;display:flex;align-items:flex-end}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 30%,rgba(0,229,255,0.07) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 15% 70%,rgba(64,239,255,0.05) 0%,transparent 50%)}
+  /* Lightning bolt */
+  .lightning{position:absolute;top:10%;right:15%;font-size:14rem;opacity:0.03;animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:0.03}50%{opacity:0.06}}
+  /* Grid lines */
+  .grid-lines{position:absolute;inset:0;pointer-events:none}
+  .grid-lines::before,.grid-lines::after{content:'';position:absolute;background:rgba(0,229,255,0.03)}
+  .grid-lines::before{top:0;bottom:0;left:50%;width:1px}
+  .grid-lines::after{left:0;right:0;top:50%;height:1px}
+  .hero-content{position:relative;z-index:2;padding:4rem 5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:flex-end;width:100%}
+  .hero-tag{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.2);padding:0.35rem 0.9rem;display:inline-block;margin-bottom:2rem;border-radius:2px}
+  h1.hero-title{font-family:'Anton',sans-serif;font-size:clamp(5rem,13vw,10.5rem);line-height:0.88;letter-spacing:0.04em;color:white;text-transform:uppercase}h1.hero-title .accent{color:var(--accent);display:block}
+  .hero-sub{font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.75rem}
+  .hero-desc{font-size:0.97rem;line-height:1.85;font-weight:300;color:rgba(255,255,255,0.55);max-width:460px;margin-top:2rem;margin-bottom:2.5rem}.hero-desc strong{color:rgba(255,255,255,0.9);font-weight:700}
+  .btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;border-radius:3px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;display:inline-block}
+  .btn-accent{background:var(--accent);color:#0A0A0A}.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,229,255,0.3)}
+  .btn-ghost{background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.18);margin-left:1rem}.btn-ghost:hover{color:white;border-color:white}
+  /* Hero right - agility times */
+  .hero-right{display:flex;flex-direction:column;justify-content:flex-end;gap:1rem}
+  .agility-tests{display:flex;flex-direction:column;gap:0.5rem}
+  .a-test{display:flex;align-items:center;gap:1rem;padding:0.75rem 1rem;background:rgba(0,229,255,0.04);border:1px solid rgba(0,229,255,0.1);border-radius:4px;opacity:0;animation:fadeAgi 0.5s forwards}
+  .a-test:nth-child(1){animation-delay:0.2s}.a-test:nth-child(2){animation-delay:0.4s}.a-test:nth-child(3){animation-delay:0.6s}.a-test:nth-child(4){animation-delay:0.8s}
+  @keyframes fadeAgi{from{opacity:0;transform:translateX(15px)}to{opacity:1;transform:translateX(0)}}
+  .a-icon{font-size:1.5rem;flex-shrink:0}
+  .a-info{flex:1}
+  .a-info h4{font-weight:800;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:0.1rem}
+  .a-info p{font-size:0.72rem;color:rgba(255,255,255,0.35);margin:0}
+  .a-time{font-family:'Anton',sans-serif;font-size:1.4rem;color:var(--accent);flex-shrink:0}
+
+  .inner{max-width:1100px;margin:0 auto;padding:0 4rem}
+  section.dark-sect{background:var(--dark);padding:5rem 0}section.mid-sect{background:var(--mid);padding:5rem 0}section.card-sect{background:var(--card);padding:5rem 0}
+  .section-label{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem}.section-label::after{content:'';flex:1;height:1px;background:rgba(0,229,255,0.15);max-width:80px}
+  h2{font-family:'Anton',sans-serif;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:0.05em;text-transform:uppercase;color:white;margin-bottom:1.5rem;line-height:1}
+  h3{font-weight:800;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;margin-top:2.5rem}
+  p{font-size:0.97rem;line-height:1.8;color:rgba(255,255,255,0.58);margin-bottom:1rem}
+  iframe{border-radius:8px;margin:2rem 0;max-width:100%;border:1px solid rgba(0,229,255,0.1)}
+  .activity-box{background:var(--card);border:1px solid rgba(0,229,255,0.15);border-left:4px solid var(--accent);border-radius:4px;padding:2rem 2.5rem;margin:2.5rem 0}
+  .act-label{font-size:0.65rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem}
+  .activity-box h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.06)}.activity-box p{margin-bottom:0.75rem}
+  
+  .field-group{margin-bottom:1rem}
+  .field-label{display:block;font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.35rem}
+  .field-input{width:100%;background:rgba(255,255,255,0.04);border:none;border-bottom:2px solid rgba(0,229,255,0.2);border-radius:3px 3px 0 0;padding:0.55rem 0.75rem;font-family:'Mulish',sans-serif;font-size:0.9rem;color:#F0F0F0;transition:border-color 0.2s,background 0.2s;resize:none}
+  .field-input:focus{outline:none;border-bottom-color:var(--accent);background:rgba(0,229,255,0.05)}
+  .field-input::placeholder{color:rgba(255,255,255,0.15)}
+  textarea.field-input{min-height:80px;line-height:1.6}
+  .alumno-bar{background:rgba(0,229,255,0.05);border:1px solid rgba(0,229,255,0.2);border-radius:6px;padding:1.25rem 2rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .alumno-bar label{font-size:0.72rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);flex-shrink:0}
+  .alumno-bar input{flex:1;min-width:200px;background:transparent;border:none;border-bottom:2px solid rgba(0,229,255,0.2);padding:0.4rem 0.5rem;font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:white}
+  .alumno-bar input:focus{outline:none;border-bottom-color:var(--accent)}
+  .alumno-bar input::placeholder{color:rgba(255,255,255,0.15);font-family:'Mulish',sans-serif;font-size:0.85rem;font-weight:400;letter-spacing:0}
+  .pdf-btn-wrap{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;display:flex;gap:1rem;align-items:center}
+  .pdf-btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;padding:1rem 2.2rem;border-radius:50px;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;gap:0.6rem;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+  .pdf-btn-save{background:var(--accent);color:#0A0A0A}.pdf-btn-save:hover{background:var(--accent-light);transform:translateY(-2px)}
+  .pdf-btn-clear{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12)}.pdf-btn-clear:hover{background:rgba(255,255,255,0.14);color:white}
+  .toast{position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#0A0A0A;font-weight:800;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:50px;z-index:300;opacity:0;transition:opacity 0.3s;pointer-events:none}
+  .toast.show{opacity:1}
+  .progress-bar-wrap{position:fixed;top:var(--nav-h);left:0;right:0;height:3px;background:rgba(255,255,255,0.06);z-index:99}
+  .progress-bar-fill{height:100%;background:var(--accent);width:0%;transition:width 0.4s}
+  .info-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.info-table th{font-size:0.75rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-align:left;padding:0.75rem 1rem;border-bottom:2px solid rgba(0,229,255,0.2)}.info-table td{padding:0.85rem 1rem;font-size:0.9rem;color:rgba(255,255,255,0.65);border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:top}.info-table tr:hover td{background:rgba(0,229,255,0.04);color:rgba(255,255,255,0.85)}
+  .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;margin:2rem 0;background:rgba(255,255,255,0.04)}.tech-tile{background:var(--dark);padding:1.75rem;transition:background 0.2s}.tech-tile:hover{background:rgba(0,229,255,0.05)}.tech-tile .t-icon{font-size:2rem;margin-bottom:0.75rem}.tech-tile h4{font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.tech-tile p{font-size:0.82rem;margin:0}
+  .grades-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;margin:2rem 0}.grade-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:1.5rem;transition:all 0.2s}.grade-card:hover{border-color:rgba(0,229,255,0.25);transform:translateY(-2px)}.grade-code{font-family:'Anton',sans-serif;font-size:2.5rem;letter-spacing:0.05em;line-height:1;margin-bottom:0.5rem;color:var(--accent)}.grade-card h4{font-weight:800;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.grade-card p{font-size:0.82rem;margin:0}
+  .grade-tag{display:inline-block;font-family:'Anton',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:2px;margin-right:0.4rem;margin-top:0.3rem}.tag-beg{background:rgba(0,229,255,0.1);color:var(--accent);border:1px solid rgba(0,229,255,0.2)}.tag-int{background:rgba(255,200,50,0.1);color:#ffc832;border:1px solid rgba(255,200,50,0.2)}.tag-adv{background:rgba(255,70,70,0.1);color:#ff4646;border:1px solid rgba(255,70,70,0.2)}
+  .ch-list{margin:2rem 0}.ch-item{display:grid;grid-template-columns:70px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:start;transition:padding-left 0.2s}.ch-item:hover{padding-left:0.75rem}.ch-num{font-family:'Anton',sans-serif;font-size:3rem;color:rgba(0,229,255,0.12);line-height:1;transition:color 0.2s}.ch-item:hover .ch-num{color:var(--accent)}.ch-content h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.ch-content p{font-size:0.88rem;margin:0}.ch-tag{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.6rem;font-size:0.65rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;background:rgba(0,229,255,0.07);color:var(--accent);border:1px solid rgba(0,229,255,0.15)}
+  .nav-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}.nav-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:2rem;text-decoration:none;color:inherit;transition:all 0.25s;display:block}.nav-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,229,255,0.1)}.nav-card .icon{font-size:2.2rem;margin-bottom:0.75rem}.nav-card h3{margin:0 0 0.5rem;font-size:1rem;color:white}.nav-card p{font-size:0.85rem;margin:0}
+  .form-placeholder{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2rem;max-width:520px;margin:2rem 0}.form-placeholder p:first-child{color:white;font-weight:700;font-size:1rem;margin-bottom:0.25rem}.form-placeholder p:last-child{font-size:0.82rem;color:rgba(255,255,255,0.3);margin:0}
+  .scheme-box{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2.5rem;overflow-x:auto}.scheme-center{text-align:center;font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;text-transform:uppercase}.scheme-pipe{text-align:center;color:rgba(255,255,255,0.15)}.scheme-row{display:flex;gap:1.5rem;justify-content:center;margin:0.5rem 0;flex-wrap:wrap}.scheme-col{flex:1;min-width:130px;text-align:center}.scheme-col-title{font-weight:800;color:white;font-size:0.82rem;border-bottom:1px solid rgba(0,229,255,0.2);padding-bottom:0.25rem;margin-bottom:0.5rem;letter-spacing:0.1em;text-transform:uppercase}.scheme-blank{border-bottom:1px solid rgba(255,255,255,0.12);margin:0.4rem auto;width:100%;height:20px}
+  .img-block{width:100%;margin:2rem 0;border-radius:8px;overflow:hidden;position:relative}.img-block img{width:100%;height:320px;object-fit:cover;display:block;filter:brightness(0.85)}.img-caption{position:absolute;bottom:0;left:0;right:0;padding:0.6rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));font-size:0.75rem;color:rgba(255,255,255,0.65)}
+  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}.img-grid .img-block{margin:0}.img-grid .img-block img{height:220px}
+  footer{background:#060606;padding:2rem 4rem 6rem;border-top:1px solid rgba(255,255,255,0.04)}footer p{font-size:0.72rem;color:rgba(255,255,255,0.18);line-height:1.6;max-width:800px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+  .watermark{position:fixed;bottom:18px;right:22px;z-index:9999;font-family:sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);pointer-events:none;user-select:none;white-space:nowrap}
+  @media(max-width:768px){.hero-content{grid-template-columns:1fr;padding:3rem 1.5rem 4rem}.hero-right{display:none}.inner{padding:0 1.5rem}.nav-cards{grid-template-columns:1fr}}
+  html{width:100%}body{width:100%;max-width:100%;overflow-x:hidden}
+
+  @media print{header,footer,.pdf-btn-wrap,.watermark,.progress-bar-wrap,#inicio{display:none!important}body{background:white!important;color:#111!important}section.dark-sect,section.mid-sect,section.card-sect{background:white!important;padding:1.5rem 0}h2,h3,.grade-code,.scheme-center{color:#111!important}.section-label,.act-label,.ch-tag,.grade-tag{color:#007a8a!important}.activity-box{border-left:4px solid #007a8a!important;background:#f5f5f5!important;break-inside:avoid}.field-input{background:white!important;border:none!important;border-bottom:1px solid #ccc!important;color:#111!important}.info-table td,.info-table th{border-bottom:1px solid #ddd!important;color:#333!important}.tech-tile,.grade-card,.nav-card{background:#f9f9f9!important;border:1px solid #ddd!important;break-inside:avoid}.tech-tile p,.grade-card p,.ch-content p,.nav-card p{color:#444!important}.tech-tile h4,.grade-card h4,.ch-content h4{color:#111!important}.alumno-bar{background:#f9f9f9!important;border:1px solid #ccc!important}.alumno-bar input{color:#111!important;border-bottom:1px solid #999!important}.alumno-bar label{color:#007a8a!important}.ch-num{color:#ccc!important}.scheme-box{background:#f5f5f5!important;border:1px solid #ddd!important}.scheme-col-title{border-bottom:1px solid #007a8a!important;color:#111!important}.reveal{opacity:1!important;transform:none!important}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="watermark">© Jaime Redondo</div>
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill"></div></div>
+<div class="pdf-btn-wrap">
+  <button class="pdf-btn pdf-btn-clear" onclick="clearAll()">🗑 Borrar todo</button>
+  <button class="pdf-btn pdf-btn-save" onclick="savePDF()">📄 Guardar como PDF</button>
+</div>
+<div class="toast" id="toast">¡Abriendo diálogo de impresión!</div>
+<header>
+  <a class="logo" href="#inicio">⚡ Guía de Aprendizaje — <span>AGILIDAD</span></a>
+  <nav>
+    <a href="#activacion">Actívate</a>
+    <div class="subnav"><a href="#retate">Rétate</a><div class="subnav-menu"><a href="#conceptos">Conceptos y Componentes</a><a href="#tecnica">Tests y Entrenamiento</a></div></div>
+    <a href="#entrena">Entrena y Compite</a>
+    <a href="#evalua">Evalúa</a>
+  </nav>
+</header>
+
+<div id="inicio">
+  <div class="hero-bg"></div>
+  <div class="lightning">⚡</div>
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag reveal">Educación Física · Guía de Aprendizaje · 2º ESO</div>
+      <h1 class="hero-title reveal" style="transition-delay:0.1s">AGI<span class="accent">LIDAD</span></h1>
+      <div class="hero-sub reveal" style="transition-delay:0.15s">Condición Física · Capacidades Coordinativas</div>
+      <p class="hero-desc reveal" style="transition-delay:0.2s">La agilidad es la capacidad de <strong>cambiar de dirección, posición y velocidad rápidamente y con precisión</strong>. No es solo velocidad: es la suma de la velocidad, el equilibrio, la coordinación y la capacidad de reacción. Es la diferencia entre un atleta bueno y uno extraordinario.</p>
+      <div class="reveal" style="transition-delay:0.3s"><a href="#activacion" class="btn btn-accent">Empezar</a><a href="#retate" class="btn btn-ghost">Saber más</a></div>
+    </div>
+    <div class="hero-right">
+      <p style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.5rem">TESTS DE AGILIDAD</p>
+      <div class="agility-tests">
+        <div class="a-test"><div class="a-icon">🔷</div><div class="a-info"><h4>Illinois Agility Test</h4><p>Circuito con conos — combinación de sprint y slalom</p></div><div class="a-time">~16s</div></div>
+        <div class="a-test"><div class="a-icon">🔁</div><div class="a-info"><h4>505 Agility Test</h4><p>Sprint 10m, giro 180°, vuelta 5m</p></div><div class="a-time">~2.5s</div></div>
+        <div class="a-test"><div class="a-icon">⭐</div><div class="a-info"><h4>Star Excursion Test</h4><p>Equilibrio y alcance en 8 direcciones</p></div><div class="a-time">~90s</div></div>
+        <div class="a-test"><div class="a-icon">🏃</div><div class="a-info"><h4>Test 4 × 10m</h4><p>Lanzadera de velocidad y cambio de dirección</p></div><div class="a-time">~11s</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:100%;overflow:hidden;"><div class="img-block" style="border-radius:0;margin:0;"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=80" alt="Atletismo agilidad" loading="lazy"/><div class="img-caption">La agilidad — la capacidad de ser rápido, preciso y eficiente en el movimiento</div></div></div>
+
+<section class="dark-sect" id="activacion">
+  <div class="inner">
+    <p class="section-label reveal">Sección 01</p>
+    <h2 class="reveal">Actívate</h2>
+        <div class="alumno-bar reveal">
+      <label for="alumno-nombre">👤 Nombre del alumno/a</label>
+      <input type="text" id="alumno-nombre" placeholder="Escribe tu nombre y apellidos...">
+      <label for="alumno-curso" style="margin-left:1rem">📚 Curso</label>
+      <input type="text" id="alumno-curso" placeholder="2º ESO — Grupo..." style="max-width:180px">
+    </div>
+<h3 class="reveal">¿Qué hace a un Atleta Ágil?</h3>
+    <p class="reveal">La agilidad es una de las capacidades más valoradas en el deporte de alto nivel. Un futbolista que regate con facilidad, un tenista que cambia de dirección en una fracción de segundo, un judoka que esquiva y contraataca... todos ellos demuestran una agilidad excepcional que va mucho más allá de la simple velocidad.</p>
+    <p class="reveal">La agilidad depende de la <strong>velocidad de reacción, la coordinación neuromuscular, la fuerza explosiva y el equilibrio dinámico</strong>. La buena noticia: todas estas cualidades se pueden entrenar y mejorar con la práctica sistemática adecuada.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/g28m3A5QEqA" title="Entrenamiento de agilidad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 1: Conocimientos Previos</h4>
+      <div class="field-group"><label class="field-label" for="auto_513900">¿Qué deportes crees que requieren más agilidad? ¿Por qué?</label><input type="text" class="field-input" id="auto_513900" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="auto_304646">¿Qué diferencia hay entre ser rápido y ser ágil?</label><input type="text" class="field-input" id="auto_304646" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="auto_794455">¿Crees que la agilidad es innata o se puede aprender y mejorar?</label><textarea class="field-input" id="auto_794455" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="auto_781791">¿Conoces algún test o prueba para medir la agilidad?</label><input type="text" class="field-input" id="auto_781791" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="auto_621488">¿Qué capacidades físicas crees que influyen en la agilidad?</label><input type="text" class="field-input" id="auto_621488" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="auto_274296">¿Qué deportistas conoces que destaquen por su agilidad?</label><input type="text" class="field-input" id="auto_274296" placeholder="Tu respuesta..."></div>
+    </div>
+  </div>
+</section>
+
+<section class="mid-sect" id="retate">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02</p>
+    <h2 class="reveal">Rétate</h2>
+    <p class="reveal">La agilidad es una capacidad <strong>coordinativa</strong>: depende más del sistema nervioso que de los músculos. Cuando entrenamos la agilidad, estamos entrenando al cerebro para que dé órdenes más rápidas y precisas a los músculos. Por eso su entrenamiento debe ser variado, con estímulos cambiantes y de alta intensidad.</p>
+    <div class="nav-cards">
+      <a href="#conceptos" class="nav-card reveal"><div class="icon">🧠</div><h3>Conceptos y Componentes</h3><p>Definición, relación con otras capacidades físicas, tipos de agilidad y factores que la determinan.</p></a>
+      <a href="#tecnica" class="nav-card reveal" style="transition-delay:0.1s"><div class="icon">⏱</div><h3>Tests y Entrenamiento</h3><p>Tests estandarizados, métodos de entrenamiento, escaleras de agilidad y ejercicios prácticos.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="card-sect" id="conceptos">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02A</p>
+    <h2 class="reveal">Conceptos y Componentes</h2>
+    <h3 class="reveal">¿Qué es la Agilidad?</h3>
+    <p class="reveal">La agilidad se define como la <strong>capacidad de cambiar de dirección, posición o movimiento de forma rápida, precisa y eficiente</strong>, respondiendo a un estímulo externo (un adversario, una señal, un balón). Se diferencia de la velocidad en que implica cambio de dirección y respuesta a estímulos.</p>
+
+    <h3 class="reveal">Capacidades que Componen la Agilidad</h3>
+    <div class="grades-grid reveal">
+      <div class="grade-card"><div class="grade-code">VEL</div><h4>Velocidad</h4><p>La rapidez de desplazamiento lineal. La agilidad sin velocidad es lentitud, y la velocidad sin agilidad es rígida e impredecible.</p><span class="grade-tag tag-beg">Base</span></div>
+      <div class="grade-card"><div class="grade-code">EQU</div><h4>Equilibrio Dinámico</h4><p>Capacidad de mantener el control del cuerpo durante los cambios de dirección. Sin equilibrio, el cambio de dirección provoca caída.</p><span class="grade-tag tag-int">Control</span></div>
+      <div class="grade-card"><div class="grade-code">COO</div><h4>Coordinación</h4><p>Capacidad de integrar los movimientos de los diferentes segmentos corporales de forma eficiente. Es la "inteligencia" del movimiento.</p><span class="grade-tag tag-int">Nervioso</span></div>
+      <div class="grade-card"><div class="grade-code">REA</div><h4>Tiempo de Reacción</h4><p>Tiempo que tarda el sistema nervioso en procesar un estímulo y dar la orden de movimiento al músculo. Entrenable y mejorable.</p><span class="grade-tag tag-adv">Decisión</span></div>
+    </div>
+
+    <h3 class="reveal">Tipos de Agilidad</h3>
+    <table class="info-table reveal">
+      <thead><tr><th>Tipo</th><th>Descripción</th><th>Ejemplo deportivo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Agilidad planificada</strong></td><td>El atleta sabe de antemano cuándo y cómo va a cambiar de dirección.</td><td>Circuito de slalom con conos, circuito de agilidad en atletismo.</td></tr>
+        <tr><td><strong>Agilidad reactiva</strong></td><td>El atleta responde a un estímulo externo imprevisto (adversario, señal, balón).</td><td>Defensa en baloncesto, regate en fútbol, golpe en tenis.</td></tr>
+        <tr><td><strong>Agilidad con balón</strong></td><td>El control técnico del balón se combina con el cambio de dirección.</td><td>Conducción en fútbol, bote en baloncesto mientras se regatea.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="reveal">Factores que Determinan la Agilidad</h3>
+    <div class="tech-grid reveal">
+      <div class="tech-tile"><div class="t-icon">⚡</div><h4>Fuerza Explosiva</h4><p>Los músculos de las piernas deben ser capaces de producir fuerza máxima en el menor tiempo posible para cambiar de dirección.</p></div>
+      <div class="tech-tile"><div class="t-icon">🧠</div><h4>Sistema Nervioso</h4><p>La velocidad de transmisión de impulsos nerviosos determina la rapidez con la que el cuerpo puede responder a un estímulo.</p></div>
+      <div class="tech-tile"><div class="t-icon">🏃</div><h4>Técnica de Carrera</h4><p>Una técnica de carrera eficiente reduce el tiempo de contacto con el suelo y optimiza cada zancada.</p></div>
+      <div class="tech-tile"><div class="t-icon">👁</div><h4>Percepción Visual</h4><p>La velocidad con la que el deportista procesa la información visual del entorno determina su capacidad de anticipación.</p></div>
+      <div class="tech-tile"><div class="t-icon">🎯</div><h4>Anticipación</h4><p>Los atletas expertos anticipan el movimiento antes de que ocurra, lo que les da ventaja temporal sobre los principiantes.</p></div>
+      <div class="tech-tile"><div class="t-icon">💪</div><h4>Flexibilidad</h4><p>Una buena amplitud de movimiento articular permite ejecutar los cambios de dirección con mayor amplitud y menor riesgo de lesión.</p></div>
+    </div>
+
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 2: Agilidad en los Deportes</h4>
+      <p>Elige 3 deportes diferentes y describe, para cada uno, 2 situaciones concretas de partido donde la agilidad sea determinante. Indica qué tipo de agilidad se usa (planificada, reactiva o con balón) y qué capacidades físicas son las más importantes en esa situación.</p>
+      <div class="field-group"><label class="field-label" for="a2r">Para 3 deportes diferentes: describe 2 situaciones donde la agilidad sea clave, qué tipo y qué capacidades físicas implica.</label><textarea class="field-input" id="a2r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+      <br/>
+      <h4>Actividad 3: ¿Naces o te Haces?</h4>
+      <p>¿La agilidad es una capacidad innata o se puede desarrollar? Busca evidencias científicas y elabora un argumento de 10-15 líneas. ¿Qué aspectos de la agilidad se mejoran más con el entrenamiento? ¿Cuáles tienen mayor componente genético?</p>
+      <div class="field-group"><label class="field-label" for="a3r">¿La agilidad es innata o entrenable? Busca argumentos y elabora tu respuesta de 10-15 líneas.</label><textarea class="field-input" id="a3r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<div class="img-grid" style="max-width:1100px;margin:2rem auto;padding:0 4rem;">
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?w=800&q=80" alt="Escalera agilidad entrenamiento" loading="lazy"/><div class="img-caption">La escalera de agilidad — uno de los herramientas más eficaces para mejorar la coordinación</div></div>
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&q=80" alt="Conos entrenamiento velocidad" loading="lazy"/><div class="img-caption">Los circuitos de conos — desarrollan la agilidad reactiva y planificada simultáneamente</div></div>
+</div>
+
+<section class="dark-sect" id="tecnica">
+  <div class="inner">
+    <p class="section-label reveal">Sección 02B</p>
+    <h2 class="reveal">Tests y Entrenamiento</h2>
+    <h3 class="reveal">Tests de Valoración de la Agilidad</h3>
+    <table class="info-table reveal">
+      <thead><tr><th>Test</th><th>Descripción</th><th>Valores referencia (14 años)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Test 4 × 10m</strong></td><td>Salida desde línea, correr 10m, recoger objeto, volver. 4 repeticiones. Mide la capacidad de cambio de dirección a máxima velocidad.</td><td>Bueno: &lt;11 seg | Medio: 11-13 seg | Bajo: &gt;13 seg</td></tr>
+        <tr><td><strong>Illinois Agility Test</strong></td><td>Circuito de 10m × 5m con conos en slalom. Requiere cambios de dirección múltiples. Muy utilizado en fútbol y atletismo.</td><td>Masculino: &lt;15.9s | Femenino: &lt;17.5s</td></tr>
+        <tr><td><strong>Test 5-10-5</strong></td><td>Desde el centro, correr 5m a un lado, volver 10m al otro lado, volver 5m al centro. Mide el primer paso y el cambio de dirección.</td><td>Bueno: &lt;4.5 seg | Medio: 4.5-5.5 seg</td></tr>
+        <tr><td><strong>Tiempo de reacción</strong></td><td>Capturar una regla en caída libre. Mide el tiempo de reacción visual-motor. Simple, pero muy revelador.</td><td>Bueno: &lt;15cm | Medio: 15-25cm | Bajo: &gt;25cm</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="reveal">Métodos de Entrenamiento de la Agilidad</h3>
+    <div class="grades-grid reveal">
+      <div class="grade-card"><div class="grade-code">ESC</div><h4>Escalera de Agilidad</h4><p>Patrones de pasos dentro de los cuadrados de la escalera. Desarrolla la coordinación, la frecuencia de paso y la rapidez de pies. Clave en todos los deportes.</p><span class="grade-tag tag-beg">Coordinación</span></div>
+      <div class="grade-card"><div class="grade-code">CON</div><h4>Circuito de Conos</h4><p>Carreras entre conos en diferentes patrones (Z, T, L, circular). Desarrolla la agilidad planificada y la velocidad de cambio de dirección.</p><span class="grade-tag tag-int">Cambio dirección</span></div>
+      <div class="grade-card"><div class="grade-code">REA</div><h4>Ejercicios Reactivos</h4><p>El entrenador da señales (señas, colores, sonidos) y el deportista reacciona. Desarrolla la agilidad reactiva propia del juego real.</p><span class="grade-tag tag-int">Reactivo</span></div>
+      <div class="grade-card"><div class="grade-code">PLI</div><h4>Pliometría</h4><p>Saltos, caídas y rebotes que desarrollan la fuerza explosiva necesaria para los cambios de dirección a alta velocidad.</p><span class="grade-tag tag-adv">Potencia</span></div>
+    </div>
+
+    <div class="activity-box reveal">
+      <div class="act-label">Cuaderno de Actividades</div>
+      <h4>Actividad 4: Diseña tu Circuito</h4>
+      <p>Diseña un circuito de agilidad con 8 conos para trabajar en el patio del colegio. Dibuja el circuito en un papel (o cuaderno), indica: el punto de salida y llegada, la trayectoria exacta, el tipo de movimientos en cada tramo (sprint, slalom, cambio de 180°, etc.) y cuántas repeticiones harías.</p>
+      <div class="field-group"><label class="field-label" for="a4r">Describe tu circuito de agilidad con 8 conos: punto de salida/llegada, trayectoria, tipos de movimiento y repeticiones.</label><textarea class="field-input" id="a4r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+      <br/>
+      <h4>Actividad 5: Agilidad y Deporte Específico</h4>
+      <p>Elige tu deporte favorito y diseña 3 ejercicios de agilidad específicos para ese deporte. Para cada ejercicio indica: descripción, duración, número de series, descanso entre series y qué tipo de agilidad trabaja principalmente.</p>
+      <div class="field-group"><label class="field-label" for="a5r">Para tu deporte favorito, diseña 3 ejercicios de agilidad específicos con duración, series, descanso y tipo de agilidad.</label><textarea class="field-input" id="a5r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+    </div>
+  </div>
+</section>
+
+<section class="mid-sect" id="entrena">
+  <div class="inner">
+    <p class="section-label reveal">Sección 03</p>
+    <h2 class="reveal">Entrena y Compite</h2>
+    <p class="reveal">La agilidad solo mejora con práctica intensa y variada. Estos desafíos progresivos te llevarán desde los movimientos más básicos hasta las situaciones más parecidas al deporte real.</p>
+    <div class="ch-list">
+      <div class="ch-item reveal"><div class="ch-num">01</div><div class="ch-content"><h4>Test 4 × 10m</h4><p>Realiza el test de 4 × 10m. Corre a máxima velocidad, recoge el objeto y vuelve. 4 repeticiones. Anota tu tiempo al inicio de la unidad. Repítelo al final. Objetivo: mejorar tu marca en al menos 0.5 segundos.</p><span class="ch-tag">⏱ Test inicial</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d1r">Tu respuesta y reflexión</label><textarea class="field-input" id="d1r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.05s"><div class="ch-num">02</div><div class="ch-content"><h4>Escalera de Agilidad</h4><p>Practica 5 patrones diferentes de escalera: 2 pies dentro, paso lateral, pasos cruzados, galloping y skipping. Cada patrón: 4 repeticiones de ida y vuelta. Aumenta la velocidad en cada repetición. ¿Cuál te resulta más difícil?</p><span class="ch-tag">👣 Coordinación</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d2r">Tu respuesta y reflexión</label><textarea class="field-input" id="d2r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.1s"><div class="ch-num">03</div><div class="ch-content"><h4>Illinois Adaptado</h4><p>Monta el circuito Illinois con los conos disponibles. Compérate a ti mismo/a: realiza 3 intentos y anota el mejor tiempo. Luego hazlo de espaldas (corriendo marcha atrás). ¿Cuánto más tardas en la versión de espaldas?</p><span class="ch-tag">🔷 Circuito</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d3r">Tu respuesta y reflexión</label><textarea class="field-input" id="d3r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.15s"><div class="ch-num">04</div><div class="ch-content"><h4>Reacción al Color</h4><p>En tríos: el central está frente a los otros dos, que sostienen petos de colores diferentes. El profesor/a dice un color y el central debe tocar el peto correspondiente. Variante: el central está de espaldas y debe girarse antes de reaccionar.</p><span class="ch-tag">👁 Reacción</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d4r">Tu respuesta y reflexión</label><textarea class="field-input" id="d4r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.2s"><div class="ch-num">05</div><div class="ch-content"><h4>Agilidad con Balón</h4><p>Conduce un balón (fútbol, baloncesto o cualquier deporte) por un circuito de conos. Cronométrate. Repite sin balón. ¿Cuánto tiempo añade el balón? ¿Qué cambias en tu técnica para ser más rápido/a con él?</p><span class="ch-tag">⚽ Deporte real</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d5r">Tu respuesta y reflexión</label><textarea class="field-input" id="d5r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+      <div class="ch-item reveal" style="transition-delay:0.25s"><div class="ch-num">06</div><div class="ch-content"><h4>Torneo de Agilidad</h4><p>Competición por grupos: cada grupo diseña y presenta un circuito de agilidad de 30 segundos. Los demás grupos lo realizan y se cronometran. El grupo que haya diseñado el circuito actúa como juez. Clasificación final con los mejores tiempos.</p><span class="ch-tag">🏆 Competición</span>
+          <div class="field-group" style="margin-top:0.8rem"><label class="field-label" for="d6r">Tu respuesta y reflexión</label><textarea class="field-input" id="d6r" placeholder="Anota tus resultados y observaciones..."></textarea></div>
+        </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-sect" id="evalua">
+  <div class="inner">
+    <p class="section-label reveal">Sección 04</p>
+    <h2 class="reveal">Evalúa</h2>
+    <div class="form-placeholder reveal"><p>📝 Formulario de Google</p><p>Pega aquí el iframe de tu Formulario de Google.</p></div>
+    <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div><h4>Actividad 6: Mapa Conceptual</h4><p>Completa el siguiente mapa conceptual de la Agilidad:</p></div>
+    <div class="scheme-box reveal">
+      <div class="scheme-center">⚡ AGILIDAD</div>
+      <div style="text-align:center;color:rgba(255,255,255,0.18);font-size:0.85rem">DEFINICIÓN: <span style="border-bottom:1px solid rgba(255,255,255,0.1);display:inline-block;width:300px;">&nbsp;</span></div>
+      <div class="scheme-pipe">|</div>
+      <div class="scheme-row">
+        <div class="scheme-col"><div class="scheme-col-title">COMPONENTES</div><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"></div>
+        <div class="scheme-col"><div class="scheme-col-title">TIPOS</div><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"></div>
+        <div class="scheme-col"><div class="scheme-col-title">TESTS</div><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"></div>
+        <div class="scheme-col"><div class="scheme-col-title">ENTRENAMIENTO</div><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="..." style="margin-bottom:0.4rem"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer><p>Queda expresamente prohibida cualquier reproducción, distribución, transformación, comunicación pública y/o puesta a disposición total o parcial de los contenidos o elementos, con independencia del medio empleado, si no es exclusivamente para el uso educativo de los estudiantes y familias del centro o se cuenta con la autorización previa, expresa y por escrito del titular de los correspondientes derechos.</p></footer>
+<script>
+  const STORE_KEY='ef2eso-agilidad-v1';
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  reveals.forEach(r=>obs.observe(r));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+  window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('progressFill').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'});
+  function saveLocal(){const data={};document.querySelectorAll('input,textarea').forEach(el=>{if(el.id)data[el.id]=el.value});localStorage.setItem(STORE_KEY,JSON.stringify(data))}
+  function loadLocal(){const raw=localStorage.getItem(STORE_KEY);if(!raw)return;const data=JSON.parse(raw);Object.entries(data).forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.value=val})}
+  document.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',saveLocal));
+  function savePDF(){saveLocal();const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);setTimeout(()=>window.print(),300)}
+  function clearAll(){if(!confirm('¿Borrar todas las respuestas?'))return;document.querySelectorAll('input,textarea').forEach(el=>el.value='');localStorage.removeItem(STORE_KEY)}
+  window.addEventListener('load',loadLocal);
+</script>
+</body>
+</html>

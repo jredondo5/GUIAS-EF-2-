@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Guía de Aprendizaje – NATACIÓN ESPALDA</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#00A8CC;--accent-light:#2EC4E8;--dark:#0A0A0A;--mid:#141414;--card:#1A1A1A;--nav-h:64px}
+  *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Mulish',sans-serif;background:var(--dark);color:#F0F0F0;min-height:100vh}
+  header{background:rgba(10,10,10,0.97);height:var(--nav-h);display:flex;align-items:center;padding:0 3rem;gap:2rem;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(0,168,204,0.15);backdrop-filter:blur(10px);width:100%;left:0;right:0}
+  .logo{font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:white;text-decoration:none;display:flex;align-items:center;gap:0.5rem;white-space:nowrap}.logo span{color:var(--accent)}
+  nav{display:flex;align-items:center;gap:0.2rem;flex-wrap:wrap}nav a{font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;padding:0.4rem 0.8rem;border-radius:3px;transition:all 0.2s}nav a:hover{color:var(--accent);background:rgba(0,168,204,0.08)}
+  .subnav{position:relative}.subnav>a::after{content:' ▾';font-size:0.65rem}.subnav-menu{display:none;position:absolute;top:110%;left:0;background:var(--mid);border:1px solid rgba(0,168,204,0.15);border-radius:6px;overflow:hidden;min-width:170px;box-shadow:0 12px 30px rgba(0,0,0,0.7)}.subnav:hover .subnav-menu{display:block}.subnav-menu a{display:block;border-radius:0}
+  #inicio{min-height:94vh;background:var(--dark);position:relative;overflow:hidden;display:flex;align-items:flex-end}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 85% 30%,rgba(0,168,204,0.08) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 15% 70%,rgba(0,168,204,0.05) 0%,transparent 50%)}
+  .hero-content{position:relative;z-index:2;padding:4rem 5rem 6rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:flex-end;width:100%}
+  .hero-tag{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);background:rgba(0,168,204,0.1);border:1px solid rgba(0,168,204,0.25);padding:0.35rem 0.9rem;display:inline-block;margin-bottom:2rem;border-radius:2px}
+  h1.hero-title{font-family:'Anton',sans-serif;font-size:clamp(3.5rem,9vw,7.5rem);line-height:0.88;letter-spacing:0.04em;color:white;text-transform:uppercase}h1.hero-title .accent{color:var(--accent);display:block}
+  .hero-sub{font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.75rem}
+  .hero-desc{font-size:0.97rem;line-height:1.85;font-weight:300;color:rgba(255,255,255,0.55);max-width:460px;margin-top:2rem;margin-bottom:2.5rem}.hero-desc strong{color:rgba(255,255,255,0.9);font-weight:700}
+  .btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;border-radius:3px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;display:inline-block}
+  .btn-accent{background:var(--accent);color:#0A0A0A}.btn-accent:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,168,204,0.35)}
+  .btn-ghost{background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.18);margin-left:1rem}.btn-ghost:hover{color:white;border-color:white}
+  .wave-wrap{position:absolute;bottom:0;left:0;right:0;height:120px;pointer-events:none}
+  .wave{position:absolute;bottom:0;left:-100%;width:300%;height:100%;background:rgba(0,168,204,0.04);border-radius:45% 55% 60% 40%/40% 45% 55% 60%;animation:waveFlow 8s ease-in-out infinite}
+  .wave:nth-child(2){animation-delay:-3s;opacity:0.6}.wave:nth-child(3){animation-delay:-6s;opacity:0.4}
+  @keyframes waveFlow{0%,100%{transform:translateX(0) scaleY(1)}50%{transform:translateX(5%) scaleY(1.1)}}
+  .stroke-phase{display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;opacity:0;animation:fadeP 0.5s forwards}
+  .stroke-phase:nth-child(1){animation-delay:0.3s}.stroke-phase:nth-child(2){animation-delay:0.5s}.stroke-phase:nth-child(3){animation-delay:0.7s}.stroke-phase:nth-child(4){animation-delay:0.9s}
+  @keyframes fadeP{from{opacity:0;transform:translateX(15px)}to{opacity:1;transform:translateX(0)}}
+  .ph-num{font-family:'Anton',sans-serif;font-size:1.8rem;color:rgba(0,168,204,0.25);width:40px;flex-shrink:0}
+  .ph-bar{flex:1;background:rgba(255,255,255,0.04);border-radius:3px;height:34px;overflow:hidden}
+  .ph-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding:0 0.8rem;font-size:0.68rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.8)}
+  .pf1{width:75%;background:linear-gradient(90deg,rgba(0,168,204,0.35),rgba(0,168,204,0.55))}
+  .pf2{width:60%;background:linear-gradient(90deg,rgba(0,168,204,0.45),rgba(0,168,204,0.65))}
+  .pf3{width:90%;background:linear-gradient(90deg,rgba(0,168,204,0.6),var(--accent))}
+  .pf4{width:50%;background:linear-gradient(90deg,rgba(0,168,204,0.25),rgba(0,168,204,0.45))}
+  .inner{max-width:1100px;margin:0 auto;padding:0 4rem}
+  section.dark-sect{background:var(--dark);padding:5rem 0}section.mid-sect{background:var(--mid);padding:5rem 0}section.card-sect{background:var(--card);padding:5rem 0}
+  .section-label{font-size:0.68rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.75rem}.section-label::after{content:'';flex:1;height:1px;background:rgba(0,168,204,0.2);max-width:80px}
+  h2{font-family:'Anton',sans-serif;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:0.05em;text-transform:uppercase;color:white;margin-bottom:1.5rem;line-height:1}
+  h3{font-weight:800;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;margin-top:2.5rem}
+  p{font-size:0.97rem;line-height:1.8;color:rgba(255,255,255,0.58);margin-bottom:1rem}
+  iframe{border-radius:8px;margin:2rem 0;max-width:100%;border:1px solid rgba(0,168,204,0.12)}
+  .activity-box{background:var(--card);border:1px solid rgba(0,168,204,0.2);border-left:4px solid var(--accent);border-radius:4px;padding:2rem 2.5rem;margin:2.5rem 0}
+  .act-label{font-size:0.65rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem}
+  .activity-box h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(255,255,255,0.06)}.activity-box p{margin-bottom:0.75rem}
+  
+  .field-group{margin-bottom:1rem}
+  .field-label{display:block;font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:0.35rem}
+  .field-input{width:100%;background:rgba(255,255,255,0.04);border:none;border-bottom:2px solid rgba(0,168,204,0.25);border-radius:3px 3px 0 0;padding:0.55rem 0.75rem;font-family:'Mulish',sans-serif;font-size:0.9rem;color:#F0F0F0;transition:border-color 0.2s,background 0.2s;resize:none}
+  .field-input:focus{outline:none;border-bottom-color:var(--accent);background:rgba(0,168,204,0.06)}
+  .field-input::placeholder{color:rgba(255,255,255,0.15)}
+  textarea.field-input{min-height:80px;line-height:1.6}
+  .alumno-bar{background:rgba(0,168,204,0.06);border:1px solid rgba(0,168,204,0.25);border-radius:6px;padding:1.25rem 2rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .alumno-bar label{font-size:0.72rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);flex-shrink:0}
+  .alumno-bar input{flex:1;min-width:200px;background:transparent;border:none;border-bottom:2px solid rgba(0,168,204,0.25);padding:0.4rem 0.5rem;font-family:'Anton',sans-serif;font-size:1.1rem;letter-spacing:0.05em;color:white}
+  .alumno-bar input:focus{outline:none;border-bottom-color:var(--accent)}
+  .alumno-bar input::placeholder{color:rgba(255,255,255,0.15);font-family:'Mulish',sans-serif;font-size:0.85rem;font-weight:400;letter-spacing:0}
+  .pdf-btn-wrap{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:200;display:flex;gap:1rem;align-items:center}
+  .pdf-btn{font-family:'Mulish',sans-serif;font-weight:800;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;padding:1rem 2.2rem;border-radius:50px;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;gap:0.6rem;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
+  .pdf-btn-save{background:var(--accent);color:#0A0A0A}.pdf-btn-save:hover{background:var(--accent-light);transform:translateY(-2px)}
+  .pdf-btn-clear{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12)}.pdf-btn-clear:hover{background:rgba(255,255,255,0.14);color:white}
+  .toast{position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#0A0A0A;font-weight:800;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.75rem 1.75rem;border-radius:50px;z-index:300;opacity:0;transition:opacity 0.3s;pointer-events:none}
+  .toast.show{opacity:1}
+  .progress-bar-wrap{position:fixed;top:var(--nav-h);left:0;right:0;height:3px;background:rgba(255,255,255,0.06);z-index:99}
+  .progress-bar-fill{height:100%;background:var(--accent);width:0%;transition:width 0.4s}
+  .info-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.info-table th{font-size:0.75rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-align:left;padding:0.75rem 1rem;border-bottom:2px solid rgba(0,168,204,0.3)}.info-table td{padding:0.85rem 1rem;font-size:0.9rem;color:rgba(255,255,255,0.65);border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:top}.info-table tr:hover td{background:rgba(0,168,204,0.04);color:rgba(255,255,255,0.85)}
+  .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;margin:2rem 0;background:rgba(255,255,255,0.04)}.tech-tile{background:var(--dark);padding:1.75rem;transition:background 0.2s}.tech-tile:hover{background:rgba(0,168,204,0.06)}.tech-tile .t-icon{font-size:2rem;margin-bottom:0.75rem}.tech-tile h4{font-weight:800;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.tech-tile p{font-size:0.82rem;margin:0}
+  .grades-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.25rem;margin:2rem 0}.grade-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:1.5rem;transition:all 0.2s}.grade-card:hover{border-color:rgba(0,168,204,0.3);transform:translateY(-2px)}.grade-code{font-family:'Anton',sans-serif;font-size:2.5rem;letter-spacing:0.05em;line-height:1;margin-bottom:0.5rem;color:var(--accent)}.grade-card h4{font-weight:800;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.grade-card p{font-size:0.82rem;margin:0}
+  .grade-tag{display:inline-block;font-family:'Anton',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.7rem;border-radius:2px;margin-right:0.4rem;margin-top:0.3rem}.tag-beg{background:rgba(0,168,204,0.15);color:var(--accent);border:1px solid rgba(0,168,204,0.25)}.tag-int{background:rgba(255,200,50,0.1);color:#ffc832;border:1px solid rgba(255,200,50,0.2)}.tag-adv{background:rgba(255,70,70,0.1);color:#ff4646;border:1px solid rgba(255,70,70,0.2)}
+  .ch-list{margin:2rem 0}.ch-item{display:grid;grid-template-columns:70px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:start;transition:padding-left 0.2s}.ch-item:hover{padding-left:0.75rem}.ch-num{font-family:'Anton',sans-serif;font-size:3rem;color:rgba(0,168,204,0.15);line-height:1;transition:color 0.2s}.ch-item:hover .ch-num{color:var(--accent)}.ch-content h4{font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:white;margin-bottom:0.4rem}.ch-content p{font-size:0.88rem;margin:0}.ch-tag{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.6rem;font-size:0.65rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;background:rgba(0,168,204,0.1);color:var(--accent);border:1px solid rgba(0,168,204,0.2)}
+  .nav-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}.nav-card{background:var(--card);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:2rem;text-decoration:none;color:inherit;transition:all 0.25s;display:block}.nav-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,168,204,0.12)}.nav-card .icon{font-size:2.2rem;margin-bottom:0.75rem}.nav-card h3{margin:0 0 0.5rem;font-size:1rem;color:white}.nav-card p{font-size:0.85rem;margin:0}
+  .form-placeholder{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2rem;max-width:520px;margin:2rem 0}.form-placeholder p:first-child{color:white;font-weight:700;font-size:1rem;margin-bottom:0.25rem}.form-placeholder p:last-child{font-size:0.82rem;color:rgba(255,255,255,0.3);margin:0}
+  .scheme-box{background:var(--card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;padding:2.5rem;overflow-x:auto}.scheme-center{text-align:center;font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;text-transform:uppercase}.scheme-pipe{text-align:center;color:rgba(255,255,255,0.15)}.scheme-row{display:flex;gap:1.5rem;justify-content:center;margin:0.5rem 0;flex-wrap:wrap}.scheme-col{flex:1;min-width:130px;text-align:center}.scheme-col-title{font-weight:800;color:white;font-size:0.82rem;border-bottom:1px solid rgba(0,168,204,0.3);padding-bottom:0.25rem;margin-bottom:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+  .img-block{width:100%;margin:2rem 0;border-radius:8px;overflow:hidden;position:relative}.img-block img{width:100%;height:320px;object-fit:cover;display:block;filter:brightness(0.85)}.img-caption{position:absolute;bottom:0;left:0;right:0;padding:0.6rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,0.7));font-size:0.75rem;color:rgba(255,255,255,0.65)}
+  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}.img-grid .img-block{margin:0}.img-grid .img-block img{height:220px}
+  footer{background:#060606;padding:2rem 4rem 6rem;border-top:1px solid rgba(255,255,255,0.04)}footer p{font-size:0.72rem;color:rgba(255,255,255,0.18);line-height:1.6;max-width:800px}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+  .watermark{position:fixed;bottom:18px;right:22px;z-index:9999;font-family:sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);pointer-events:none;user-select:none;white-space:nowrap}
+  @media(max-width:768px){.hero-content{grid-template-columns:1fr;padding:3rem 1.5rem 4rem}.hero-right{display:none}.inner{padding:0 1.5rem}.nav-cards{grid-template-columns:1fr}.pdf-btn-wrap{width:90%;flex-direction:column}}
+  html{width:100%}body{width:100%;max-width:100%;overflow-x:hidden}
+  
+  @media print{
+    header,footer,.pdf-btn-wrap,.watermark,.progress-bar-wrap,#inicio{display:none!important}
+    body{background:white!important;color:#111!important}
+    section.dark-sect,section.mid-sect,section.card-sect{background:white!important;padding:1.5rem 0}
+    h2,h3,.grade-code,.scheme-center{color:#111!important}
+    .section-label,.act-label,.ch-tag,.grade-tag{color:#007090!important}
+    .activity-box{border-left:4px solid #007090!important;background:#f5f5f5!important;break-inside:avoid}
+    .field-input{background:white!important;border:none!important;border-bottom:1px solid #ccc!important;color:#111!important}
+    .info-table td,.info-table th{border-bottom:1px solid #ddd!important;color:#333!important}
+    .tech-tile,.grade-card,.nav-card{background:#f9f9f9!important;border:1px solid #ddd!important;break-inside:avoid}
+    .tech-tile p,.grade-card p,.ch-content p,.nav-card p{color:#444!important}
+    .tech-tile h4,.grade-card h4,.ch-content h4{color:#111!important}
+    .alumno-bar{background:#f9f9f9!important;border:1px solid #ddd!important}
+    .alumno-bar input{color:#111!important;border-bottom:1px solid #999!important}
+    .alumno-bar label{color:#007090!important}
+    .ch-num{color:#ccc!important}
+    .scheme-box{background:#f5f5f5!important;border:1px solid #ddd!important}
+    .scheme-col-title{border-bottom:1px solid #007090!important;color:#111!important}
+    .reveal{opacity:1!important;transform:none!important}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }</style>
+</head>
+<body>
+<div class="watermark">© Jaime Redondo</div>
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill"></div></div>
+<div class="pdf-btn-wrap">
+  <button class="pdf-btn pdf-btn-clear" onclick="clearAll()">🗑 Borrar todo</button>
+  <button class="pdf-btn pdf-btn-save" onclick="savePDF()">📄 Guardar como PDF</button>
+</div>
+<div class="toast" id="toast">¡Abriendo diálogo de impresión!</div>
+
+<header>
+  <a class="logo" href="#inicio">🏊 Guía de Aprendizaje — <span>ESPALDA</span></a>
+  <nav><a href="#activacion">Actívate</a>
+    <div class="subnav"><a href="#retate">Rétate</a><div class="subnav-menu"><a href="#historia">Historia y Seguridad</a><a href="#tecnica">Técnica</a></div></div>
+    <a href="#entrena">Entrena y Compite</a><a href="#evalua">Evalúa</a></nav>
+</header>
+<div id="inicio"><div class="hero-bg"></div>
+  <div class="wave-wrap"><div class="wave"></div><div class="wave"></div><div class="wave"></div></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-tag reveal">Educación Física · Guía de Aprendizaje · 2º ESO</div>
+      <h1 class="hero-title reveal" style="transition-delay:0.1s">NATACIÓN<span class="accent">ESPALDA</span></h1>
+      <div class="hero-sub reveal" style="transition-delay:0.15s">Actividades Acuáticas · Técnica de Natación</div>
+      <p class="hero-desc reveal" style="transition-delay:0.2s">El estilo espalda es el único estilo de natación donde el nadador se desplaza <strong>mirando hacia arriba</strong>. Es el más beneficioso para la <strong>columna vertebral y la postura corporal</strong>.</p>
+      <div class="reveal" style="transition-delay:0.3s"><a href="#activacion" class="btn btn-accent">Empezar</a><a href="#retate" class="btn btn-ghost">Saber más</a></div>
+    </div>
+    <div class="hero-right" style="display:flex;flex-direction:column;justify-content:flex-end;gap:1.5rem">
+      <p style="font-size:0.65rem;font-weight:800;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25)">CICLO DE BRAZADA — ESPALDA</p>
+      <div class="stroke-phase"><div class="ph-num">1</div><div class="ph-bar"><div class="ph-fill pf1">Meñique primero al agua</div></div></div>
+      <div class="stroke-phase"><div class="ph-num">2</div><div class="ph-bar"><div class="ph-fill pf2">Tirón en S bajo el agua</div></div></div>
+      <div class="stroke-phase"><div class="ph-num">3</div><div class="ph-bar"><div class="ph-fill pf3">Empuje hasta el muslo</div></div></div>
+      <div class="stroke-phase"><div class="ph-num">4</div><div class="ph-bar"><div class="ph-fill pf4">Recobro — pulgar arriba</div></div></div>
+    </div>
+  </div>
+</div>
+<div style="max-width:100%;overflow:hidden;"><div class="img-block" style="border-radius:0;margin:0;"><img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1400&q=80" alt="Nadador espalda" loading="lazy"/><div class="img-caption">El estilo espalda — elegancia, velocidad y salud para la columna</div></div></div>
+
+<section class="dark-sect" id="activacion"><div class="inner">
+  <p class="section-label reveal">Sección 01</p><h2 class="reveal">Actívate</h2>
+    <div class="alumno-bar reveal">
+      <label for="alumno-nombre">👤 Nombre del alumno/a</label>
+      <input type="text" id="alumno-nombre" placeholder="Escribe tu nombre y apellidos...">
+      <label for="alumno-curso" style="margin-left:1rem">📚 Curso</label>
+      <input type="text" id="alumno-curso" placeholder="2º ESO — Grupo..." style="max-width:180px">
+    </div>
+  <h3 class="reveal">¿Sabes nadar de espaldas?</h3>
+  <p class="reveal">El estilo espalda es el único estilo de competición donde no hay que girar la cabeza para respirar. Es muy cómodo para principiantes y el más beneficioso para la columna vertebral.</p>
+  <p class="reveal">El estilo espalda apareció en los <strong>Juegos Olímpicos de París de 1900</strong> con un movimiento simultáneo de brazos. En los años 30-40 se adoptó el movimiento alternado moderno, mucho más rápido.</p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/JLY9TkbaCJk" title="Técnica natación espalda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div><h4>Actividad 1: Conocimientos Previos</h4>
+      <div class="field-group"><label class="field-label" for="a1q1">¿Sabes nadar? ¿Has practicado el estilo espalda?</label><input class="field-input" id="a1q1" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a1q2">¿Qué diferencias hay entre nadar de espalda y de crol?</label><textarea class="field-input" id="a1q2" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="a1q3">¿Qué es la posición hidrodinámica? ¿Por qué es importante?</label><textarea class="field-input" id="a1q3" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="a1q4">¿Conoces las normas de seguridad básicas en una piscina?</label><textarea class="field-input" id="a1q4" placeholder="Tu respuesta..."></textarea></div>
+      <div class="field-group"><label class="field-label" for="a1q5">¿Qué músculos trabaja principalmente el estilo espalda?</label><input class="field-input" id="a1q5" type="text" placeholder="Tu respuesta..."></div>
+      <div class="field-group"><label class="field-label" for="a1q6">¿Conoces a algún nadador/a famoso/a de espalda? ¿Qué sabes de él/ella?</label><input class="field-input" id="a1q6" type="text" placeholder="Tu respuesta..."></div>
+  </div>
+</div></section>
+
+<section class="mid-sect" id="retate"><div class="inner">
+  <p class="section-label reveal">Sección 02</p><h2 class="reveal">Rétate</h2>
+  <p class="reveal">El estilo espalda es uno de los cuatro estilos oficiales de natación. Desde el punto de vista de la salud, es el más beneficioso para la columna vertebral, ya que la posición horizontal y la extensión de la espalda reducen la presión sobre los discos intervertebrales.</p>
+  <div class="nav-cards">
+    <a href="#historia" class="nav-card reveal"><div class="icon">📜</div><h3>Historia y Seguridad</h3><p>Grandes campeones y normas de seguridad en el medio acuático.</p></a>
+    <a href="#tecnica" class="nav-card reveal" style="transition-delay:0.1s"><div class="icon">🏊</div><h3>Técnica</h3><p>Posición, brazada, patada, respiración, salida y viraje.</p></a>
+  </div>
+</div></section>
+
+<section class="card-sect" id="historia"><div class="inner">
+  <p class="section-label reveal">Sección 02A</p><h2 class="reveal">Historia y Seguridad</h2>
+  <h3 class="reveal">Normas de Seguridad en el Medio Acuático</h3>
+  <table class="info-table reveal"><thead><tr><th>Norma</th><th>Motivo</th></tr></thead><tbody>
+    <tr><td><strong>No correr en el borde</strong></td><td>El suelo mojado provoca resbalones y caídas graves.</td></tr>
+    <tr><td><strong>No saltar sin autorización</strong></td><td>Puede haber personas nadando donde caes, causando colisiones.</td></tr>
+    <tr><td><strong>No nadar solo/a</strong></td><td>En caso de calambres u otro problema, nadie podría ayudarte.</td></tr>
+    <tr><td><strong>Ducha obligatoria antes de entrar</strong></td><td>Elimina cremas y bacterias que contaminan el agua.</td></tr>
+    <tr><td><strong>Respetar las calles de natación</strong></td><td>Cada calle tiene nivel y dirección asignados para evitar colisiones.</td></tr>
+    <tr><td><strong>No nadar recién comido</strong></td><td>El proceso digestivo aumenta el riesgo de calambres musculares.</td></tr>
+    <tr><td><strong>Gorro de natación</strong></td><td>Protege el cabello del cloro y evita contaminar el agua.</td></tr>
+    <tr><td><strong>Informar si no sabes nadar</strong></td><td>El profesor debe conocer tu nivel para asignarte zona y supervisarte.</td></tr>
+  </tbody></table>
+  <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div>
+    <h4>Actividad 2: Ficha de Nadador/a de Espalda</h4>
+    <p>Investiga sobre un/a nadador/a de espalda famoso/a: nombre, país, palmarés, récords del mundo y un dato curioso sobre su técnica o entrenamiento.</p>
+      <div class="field-group"><label class="field-label" for="a2r">Tu ficha del nadador/a elegido/a</label><textarea class="field-input" id="a2r" style="min-height:120px" placeholder="Tu respuesta..."></textarea></div>
+    <h4 style="margin-top:1.5rem">Actividad 3: Cartel de Seguridad</h4>
+    <p>Diseña un cartel de seguridad para una piscina con al menos 6 normas. Usa dibujos o pictogramas. Explica brevemente el motivo de cada norma.</p>
+      <div class="field-group"><label class="field-label" for="a3r">Descripción de tu cartel de seguridad (normas + motivos)</label><textarea class="field-input" id="a3r" style="min-height:120px" placeholder="Tu respuesta..."></textarea></div>
+  </div>
+</div></section>
+
+<div class="img-grid" style="max-width:1100px;margin:2rem auto;padding:0 4rem;">
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1560090995-01632a28895b?w=800&q=80" alt="Piscina olímpica" loading="lazy"/><div class="img-caption">La piscina olímpica — 50 metros, 8 calles</div></div>
+  <div class="img-block"><img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=800&q=80" alt="Natación técnica" loading="lazy"/><div class="img-caption">La técnica correcta reduce el esfuerzo y aumenta la velocidad</div></div>
+</div>
+
+<section class="dark-sect" id="tecnica"><div class="inner">
+  <p class="section-label reveal">Sección 02B</p><h2 class="reveal">Técnica del Estilo Espalda</h2>
+  <h3 class="reveal">Elementos Técnicos</h3>
+  <div class="tech-grid reveal">
+    <div class="tech-tile"><div class="t-icon">🖐</div><h4>Entrada del Brazo</h4><p>Meñique primero al agua, en línea con el hombro, a las 12 en punto.</p></div>
+    <div class="tech-tile"><div class="t-icon">💪</div><h4>Tirón y Empuje</h4><p>Trayectoria en S bajo el agua. El empuje hasta el muslo es la fase más propulsiva.</p></div>
+    <div class="tech-tile"><div class="t-icon">🔄</div><h4>Recobro</h4><p>Pulgar primero fuera del agua. El brazo pasa por el aire y entra con el meñique.</p></div>
+    <div class="tech-tile"><div class="t-icon">🦵</div><h4>Patada Flutter</h4><p>Piernas alternadas de arriba a abajo. El movimiento nace de la cadera.</p></div>
+    <div class="tech-tile"><div class="t-icon">🌬</div><h4>Respiración</h4><p>La boca está siempre fuera del agua. Se inspira con un brazo y se espira con el otro.</p></div>
+    <div class="tech-tile"><div class="t-icon">↔</div><h4>Rotación de Caderas</h4><p>El cuerpo rota 30°-45° con cada brazada. Mejora la potencia y reduce la resistencia.</p></div>
+  </div>
+  <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div>
+    <h4>Actividad 4: Errores Técnicos Frecuentes</h4>
+    <p>Para cada error, explica la consecuencia y cómo corregirlo: (a) cabeza levantada, (b) brazos con el pulgar primero, (c) rodillas saliendo del agua, (d) cuerpo plano sin rotación.</p>
+      <div class="field-group"><label class="field-label" for="a4r">Análisis y corrección de los 4 errores</label><textarea class="field-input" id="a4r" style="min-height:130px" placeholder="Tu respuesta..."></textarea></div>
+    <h4 style="margin-top:1.5rem">Actividad 5: Músculos Implicados</h4>
+    <p>Indica qué hace cada músculo en la brazada de espalda: dorsal ancho, tríceps, deltoides posterior, glúteos, isquiotibiales y abdominales.</p>
+      <div class="field-group"><label class="field-label" for="a5r">Función de cada músculo en el estilo espalda</label><textarea class="field-input" id="a5r" style="min-height:110px" placeholder="Tu respuesta..."></textarea></div>
+  </div>
+</div></section>
+
+<section class="mid-sect" id="entrena"><div class="inner">
+  <p class="section-label reveal">Sección 03</p><h2 class="reveal">Entrena y Compite</h2>
+  <div class="ch-list">
+      <div class="ch-item reveal">
+        <div class="ch-num">01</div>
+        <div class="ch-content">
+          <h4>Posición Estrella de Mar</h4>
+          <p>Flota boca arriba con brazos y piernas extendidos. Aguanta 30 segundos sin tocar el fondo. Primer paso para ganar confianza en posición de espalda.</p>
+          <span class="ch-tag">🌟 Iniciación</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d1r">¿Cuánto aguantaste? ¿Qué sensación tuviste?</label>
+            <textarea class="field-input" id="d1r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.05s">
+        <div class="ch-num">02</div>
+        <div class="ch-content">
+          <h4>Deslizamiento con Patada</h4>
+          <p>Empuja de la pared en posición de espalda y aplica patada flutter. Objetivo: llegar al otro lado sin brazada.</p>
+          <span class="ch-tag">🦵 Técnica básica</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d2r">¿Cuántos metros recorriste? ¿Cómo mantuviste la posición horizontal?</label>
+            <textarea class="field-input" id="d2r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.1s">
+        <div class="ch-num">03</div>
+        <div class="ch-content">
+          <h4>25m Solo Brazada</h4>
+          <p>Nada 25m con solo los brazos (pull-buoy entre las piernas si está disponible). Concentra la atención en la entrada del meñique y el recobro con el pulgar.</p>
+          <span class="ch-tag">💪 Técnica brazada</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d3r">¿Qué parte de la brazada te costó más? ¿Qué corregiste?</label>
+            <textarea class="field-input" id="d3r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.15s">
+        <div class="ch-num">04</div>
+        <div class="ch-content">
+          <h4>50m Estilo Completo</h4>
+          <p>Nada 50m de espalda con técnica completa. Anota tu tiempo. Repite al final de la unidad. Objetivo: mejorar al menos 3 segundos.</p>
+          <span class="ch-tag">⏱ Test progresión</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d4r">Tiempo inicial y final — ¿cuánto mejoraste?</label>
+            <textarea class="field-input" id="d4r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.2s">
+        <div class="ch-num">05</div>
+        <div class="ch-content">
+          <h4>Competición por Relevos</h4>
+          <p>Relevo de 4: 25m de espalda cada uno. El siguiente no puede saltar hasta que el anterior toca. Los jueces puntúan la técnica del 1 al 5.</p>
+          <span class="ch-tag">🏆 Competición</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d5r">Puntuación de técnica y resultado del relevo</label>
+            <textarea class="field-input" id="d5r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="ch-item reveal" style="transition-delay:0.25s">
+        <div class="ch-num">06</div>
+        <div class="ch-content">
+          <h4>Reto 4 Estilos</h4>
+          <p>Nada una calle (25m) con cada estilo. Anota el tiempo de cada uno. ¿En cuál te sientes más cómodo? ¿Notaste mejora en el espalda?</p>
+          <span class="ch-tag">🌊 Multidisciplinar</span>
+          <div class="field-group" style="margin-top:0.8rem">
+            <label class="field-label" for="d6r">Tiempos de los 4 estilos y reflexión comparativa</label>
+            <textarea class="field-input" id="d6r" placeholder="Anota tus resultados y reflexiones..."></textarea>
+          </div>
+        </div>
+      </div>
+  </div>
+</div></section>
+
+<section class="dark-sect" id="evalua"><div class="inner">
+  <p class="section-label reveal">Sección 04</p><h2 class="reveal">Evalúa</h2>
+  <div class="form-placeholder reveal"><p>📝 Formulario de Google</p><p>Pega aquí el iframe de tu Formulario de Google.</p></div>
+  <div class="activity-box reveal"><div class="act-label">Cuaderno de Actividades</div><h4>Actividad 6: Mapa Conceptual</h4><p>Completa el mapa conceptual del Estilo Espalda:</p></div>
+      <div class="scheme-box reveal">
+      <div class="scheme-center">🏊 NATACIÓN — ESTILO ESPALDA</div>
+      <div class="scheme-pipe">|</div>
+      <div class="scheme-row"><div class="scheme-col"><div class="scheme-col-title">POSICIÓN</div><input class="field-input" type="text" placeholder="Característica 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Característica 2..." style="margin-bottom:0.4rem"></div><div class="scheme-col"><div class="scheme-col-title">BRAZADA</div><input class="field-input" type="text" placeholder="Fase 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Fase 2..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Fase 3..." style="margin-bottom:0.4rem"></div><div class="scheme-col"><div class="scheme-col-title">PATADA</div><input class="field-input" type="text" placeholder="Tipo..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Origen del movimiento..." style="margin-bottom:0.4rem"></div><div class="scheme-col"><div class="scheme-col-title">SEGURIDAD</div><input class="field-input" type="text" placeholder="Norma 1..." style="margin-bottom:0.4rem"><input class="field-input" type="text" placeholder="Norma 2..." style="margin-bottom:0.4rem"></div></div>
+    </div>
+</div></section>
+<footer><p>Queda expresamente prohibida cualquier reproducción, distribución, transformación, comunicación pública y/o puesta a disposición total o parcial de los contenidos o elementos, con independencia del medio empleado, si no es exclusivamente para el uso educativo de los estudiantes y familias del centro o se cuenta con la autorización previa, expresa y por escrito del titular de los correspondientes derechos.</p></footer>
+<script>
+  const STORE_KEY='ef2eso-espalda-v1';
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  reveals.forEach(r=>obs.observe(r));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})}); 
+  window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('progressFill').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'});
+  function saveLocal(){const data={};document.querySelectorAll('input,textarea').forEach(el=>{if(el.id)data[el.id]=el.value});localStorage.setItem(STORE_KEY,JSON.stringify(data))}
+  function loadLocal(){const raw=localStorage.getItem(STORE_KEY);if(!raw)return;const data=JSON.parse(raw);Object.entries(data).forEach(([id,val])=>{const el=document.getElementById(id);if(el)el.value=val})}
+  document.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',saveLocal));
+  function savePDF(){saveLocal();const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);setTimeout(()=>window.print(),300)}
+  function clearAll(){if(!confirm('¿Borrar todas las respuestas? Esta acción no se puede deshacer.'))return;document.querySelectorAll('input,textarea').forEach(el=>el.value='');localStorage.removeItem(STORE_KEY)}
+  window.addEventListener('load',loadLocal);
+</script>
+</body>
+</html>
